@@ -136,15 +136,54 @@ export function Products() {
             preserveAspectRatio="none"
             viewBox="0 0 100 100"
           >
-            <line
-              x1="60"
-              y1="0"
-              x2="40"
-              y2="100"
-              stroke="var(--background)"
-              strokeWidth="12"
-              vectorEffect="non-scaling-stroke"
-            />
+            <svg
+              className="absolute inset-0 w-full h-full"
+              preserveAspectRatio="none"
+              viewBox="0 0 100 100"
+            >
+              <defs>
+                <linearGradient id="dividerFade" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="0%"
+                    stopColor="var(--background)"
+                    stopOpacity="1"
+                  />
+                  <stop
+                    offset="25%"
+                    stopColor="var(--background)"
+                    stopOpacity="1"
+                  />
+                  <stop
+                    offset="75%"
+                    stopColor="var(--background)"
+                    stopOpacity="0"
+                  />
+                  <stop
+                    offset="100%"
+                    stopColor="var(--background)"
+                    stopOpacity="0"
+                  />
+                </linearGradient>
+              </defs>
+              <line
+                x1="60"
+                y1="0"
+                x2="40"
+                y2="100"
+                stroke="url(#dividerFade)"
+                strokeWidth="40"
+                vectorEffect="non-scaling-stroke"
+              />
+              <line
+                x1="60"
+                y1="0"
+                x2="40"
+                y2="100"
+                stroke="url(#dividerFade)"
+                strokeWidth="18"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
             <line
               x1="60"
               y1="0"
