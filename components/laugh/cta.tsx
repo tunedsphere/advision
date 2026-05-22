@@ -33,7 +33,7 @@ export function LaughCTA() {
           </div>
 
           <p className="text-xs text-muted-foreground mt-6">
-            Free download. macOS 12+ / Windows 10+
+            Free download. macOS
           </p>
         </div>
       </div>
