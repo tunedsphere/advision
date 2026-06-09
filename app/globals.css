@@ -41,9 +41,9 @@
   --header-background: oklch(0.19 0.013 255);
   --header-foreground: oklch(0.82 0.008 255);
 
-  --product-background: oklch(0.11 0.010 255);
+  --product-background: oklch(0.11 0.01 255);
   --product-foreground: oklch(0.68 0.012 255);
-  --product-border: oklch(0.50 0.016 255);
+  --product-border: oklch(0.5 0.016 255);
 }
 
 .dark {
@@ -152,8 +152,20 @@
 }
 
 .smile-wave-hero-track {
-  animation: smile-wave-track 36s linear infinite;
+  animation: smile-wave-hero-track-scroll 36s linear infinite;
+  backface-visibility: hidden;
+  contain: layout style paint;
+  transform: translateZ(0);
   will-change: transform;
+}
+
+@keyframes smile-wave-hero-track-scroll {
+  from {
+    transform: translate3d(calc(-1 * var(--wave-shift, 50%)), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .smile-wave-hero-track-slow {
@@ -175,15 +187,12 @@
   0%,
   100% {
     transform: scaleY(0.45);
-    opacity: 0.42;
   }
   40% {
     transform: scaleY(1.35);
-    opacity: 0.72;
   }
   70% {
     transform: scaleY(0.68);
-    opacity: 0.52;
   }
 }
 
@@ -191,34 +200,58 @@
   0%,
   100% {
     transform: scaleY(0.35);
-    opacity: 0.38;
   }
   45% {
     transform: scaleY(1.75);
-    opacity: 0.85;
   }
   75% {
     transform: scaleY(0.78);
-    opacity: 0.55;
   }
 }
 
 .smile-wave-hero-lane-breathe {
   animation: smile-wave-hero-lane-breathe 9s ease-in-out infinite;
+  backface-visibility: hidden;
+  transform: translateZ(0);
   transform-origin: center center;
   will-change: transform;
+}
+
+.smile-wave-bar-gradient {
+  background-color: rgb(251 113 133 / 0.5);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(251 113 133 / 0.5),
+    rgb(250 204 21 / 0.35)
+  );
 }
 
 .smile-wave-bar-breathe {
   transform-origin: center center;
   animation: smile-wave-bar-breathe ease-in-out infinite;
-  will-change: transform, opacity;
 }
 
 .smile-wave-bar-breathe-tall {
   transform-origin: center center;
   animation: smile-wave-bar-breathe-tall ease-in-out infinite;
-  will-change: transform, opacity;
+}
+
+/* Firefox / Zen: fewer compositor layers, no lane-scale + CSS track scroll. */
+.smile-wave-hero--gecko .smile-wave-hero-track {
+  animation: none;
+  contain: layout style paint;
+}
+
+.smile-wave-hero--gecko .smile-wave-bar-breathe,
+.smile-wave-hero--gecko .smile-wave-bar-breathe-tall {
+  backface-visibility: hidden;
+}
+
+/* Gecko won't paint linear-gradient on scaled subtrees — fake it with solids. */
+.smile-wave-hero--gecko .smile-wave-bar-gradient {
+  background-color: rgb(250 204 21 / 0.35);
+  background-image: none;
+  box-shadow: inset 0 40% 0 0 rgb(251 113 133 / 0.5);
 }
 
 /* Smile download page — install preview animations */

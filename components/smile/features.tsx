@@ -39,8 +39,7 @@ const features = [
   {
     icon: ListMusic,
     title: "Smart Queue",
-    description:
-      "Play Next, queue tracks, and navigate your session timeline.",
+    description: "Play Next, queue tracks, and navigate your session timeline.",
   },
   {
     icon: Heart,

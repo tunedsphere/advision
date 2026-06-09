@@ -23,11 +23,13 @@ export const SMILE_RELEASE_CONFIG: ProductReleaseConfig = {
   installSteps: [
     {
       title: "Download",
-      description: "Download Smile.dmg from your browser — the file lands in Downloads.",
+      description:
+        "Download Smile.dmg from your browser — the file lands in Downloads.",
     },
     {
       title: "Install",
-      description: "Double-click the disk image, then drag Smile into Applications.",
+      description:
+        "Double-click the disk image, then drag Smile into Applications.",
     },
     {
       title: "Smile",

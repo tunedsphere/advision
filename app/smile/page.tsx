@@ -8,7 +8,8 @@ import { SmileFooter } from "@/components/smile/footer";
 
 export const metadata: Metadata = {
   title: "Smile - Your Music, Your Way | Advision",
-  description: "A personalized music experience with powerful tag management and metadata editing. Clean, simple, and designed for you.",
+  description:
+    "A personalized music experience with powerful tag management and metadata editing. Clean, simple, and designed for you.",
 };
 
 export default function SmilePage() {

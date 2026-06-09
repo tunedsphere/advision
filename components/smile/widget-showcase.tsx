@@ -36,7 +36,11 @@ function sleep(ms: number) {
 
 function springEase(t: number) {
   const c4 = (2 * Math.PI) / 3;
-  return t === 0 ? 0 : t === 1 ? 1 : 1 + 2 ** (-10 * t) * Math.sin((t * 10 - 0.75) * c4);
+  return t === 0
+    ? 0
+    : t === 1
+      ? 1
+      : 1 + 2 ** (-10 * t) * Math.sin((t * 10 - 0.75) * c4);
 }
 
 function buildWaveStrip(minWidthPx = 1280) {
@@ -100,9 +104,7 @@ function FlowTransportIcon({
       type="button"
       tabIndex={-1}
       className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md ${
-        muted
-          ? "text-muted-foreground/80"
-          : "text-foreground"
+        muted ? "text-muted-foreground/80" : "text-foreground"
       }`}
       aria-label={label}
     >
@@ -195,7 +197,13 @@ function CollapsedPeekBar({ opacity }: { opacity: number }) {
   );
 }
 
-function WidgetDemoCursor({ visible, atTarget }: { visible: boolean; atTarget: boolean }) {
+function WidgetDemoCursor({
+  visible,
+  atTarget,
+}: {
+  visible: boolean;
+  atTarget: boolean;
+}) {
   return (
     <div
       className={`pointer-events-none absolute z-30 transition-all duration-700 ease-out ${
@@ -227,11 +235,9 @@ function AnimatedWidgetCluster({
   showCollapsed: boolean;
 }) {
   const clusterWidth =
-    COLLAPSED_WIDTH +
-    (EXPANDED_WIDTH - COLLAPSED_WIDTH) * expansionProgress;
+    COLLAPSED_WIDTH + (EXPANDED_WIDTH - COLLAPSED_WIDTH) * expansionProgress;
   const clusterHeight =
-    COLLAPSED_HEIGHT +
-    (EXPANDED_HEIGHT - COLLAPSED_HEIGHT) * expansionProgress;
+    COLLAPSED_HEIGHT + (EXPANDED_HEIGHT - COLLAPSED_HEIGHT) * expansionProgress;
   const collapsedOpacity = (1 - expansionProgress) * blinkOpacity;
   const expandedOpacity = expansionProgress;
 
