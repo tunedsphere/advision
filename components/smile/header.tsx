@@ -1,25 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { SmileDownloadButton } from "@/components/smile/download-button";
 
-export function SmileHeader() {
+type SmileHeaderProps = {
+  downloadUrl: string | null;
+  fileName: string;
+};
+
+export function SmileHeader({ downloadUrl, fileName }: SmileHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-header-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/smile" className="flex items-center gap-2">
-            <span className="text-lg font-semibold bg-gradient-to-r from-rose-300 to-yellow-200 bg-clip-text text-transparent">
+            <span className="text-lg font-semibold bg-linear-to-r from-rose-400 to-yellow-400 bg-clip-text text-transparent">
               Smile
             </span>
           </Link>
           <span className="hidden md:block text-border">|</span>
           <Link
             href="/"
-            className="hidden md:block text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="hidden md:block text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Advision
           </Link>
@@ -28,23 +33,24 @@ export function SmileHeader() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="#features"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Features
           </Link>
           <Link
             href="#personalization"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Personalization
           </Link>
-          <Button
+          <SmileDownloadButton
+            downloadUrl={downloadUrl}
+            fileName={fileName}
             size="sm"
-            variant="outline"
-            className="text-foreground border-border hover:bg-secondary"
+            className="bg-foreground text-background hover:bg-foreground/90"
           >
             Download
-          </Button>
+          </SmileDownloadButton>
         </nav>
 
         <button
@@ -82,25 +88,30 @@ export function SmileHeader() {
           <div className="px-6 py-4 flex flex-col gap-4">
             <Link
               href="#features"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
               Features
             </Link>
             <Link
               href="#personalization"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
               Personalization
             </Link>
             <Link
               href="/"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
               Advision
             </Link>
-            <Button size="sm" variant="outline" className="w-fit">
+            <SmileDownloadButton
+              downloadUrl={downloadUrl}
+              fileName={fileName}
+              size="sm"
+              className="w-fit bg-foreground text-background hover:bg-foreground/90"
+            >
               Download
-            </Button>
+            </SmileDownloadButton>
           </div>
         </div>
       )}

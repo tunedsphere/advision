@@ -8,7 +8,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-header-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
@@ -26,19 +26,19 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="/smile"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Smile
           </Link>
           <Link
             href="/laugh"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             laugh
           </Link>
           <Link
             href="#about"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             About
           </Link>
@@ -79,21 +79,21 @@ export function Header() {
           <div className="px-6 py-4 flex flex-col gap-4">
             <Link
               href="/smile"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Smile
             </Link>
             <Link
               href="/laugh"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               laugh
             </Link>
             <Link
               href="#about"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               About

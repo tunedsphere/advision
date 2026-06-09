@@ -1,50 +1,51 @@
+import { SmileWidgetShowcase } from "@/components/smile/widget-showcase";
 import {
-  Pencil,
-  Tag,
-  FileAudio,
-  Music2,
-  Sun,
-  Lock,
-  ListMusic,
-  SlidersHorizontal,
+  PictureInPicture2,
+  FolderOpen,
   ShieldCheck,
+  LayoutGrid,
+  ListMusic,
+  Heart,
+  SlidersHorizontal,
+  Palette,
+  Lock,
 } from "lucide-react";
 
 const features = [
   {
-    icon: Pencil,
-    title: "Full Personalization",
-    description: "Customize every aspect of your listening experience.",
+    icon: PictureInPicture2,
+    title: "Screen Widget",
+    description:
+      "Play, pause, and skip from a floating edge widget while you work.",
   },
   {
-    icon: Tag,
-    title: "Tag Manager",
-    description: "Organize your library with powerful, flexible tags.",
+    icon: FolderOpen,
+    title: "Local Library",
+    description:
+      "Index folders in place — no cloud uploads, no accounts required.",
   },
   {
-    icon: FileAudio,
-    title: "Metadata Editor",
-    description: "Full control over your music files and artwork.",
+    icon: ShieldCheck,
+    title: "Fix Metadata",
+    description:
+      "Find duplicates, gaps, and bad tags — preview changes, then apply.",
   },
   {
-    icon: Music2,
-    title: "Lossless Audio",
-    description: "Support for FLAC, ALAC, and high-resolution formats.",
-  },
-  {
-    icon: Sun,
-    title: "Smart Themes",
-    description: "Choose from built-in themes or create your own.",
-  },
-  {
-    icon: Lock,
-    title: "Privacy First",
-    description: "Your music stays local. No tracking, no cloud uploads.",
+    icon: LayoutGrid,
+    title: "Album Browse",
+    description:
+      "Tap cover art to expand tracks inline without leaving the grid.",
   },
   {
     icon: ListMusic,
     title: "Smart Queue",
-    description: "Play Next, queue tracks, and navigate your session timeline.",
+    description:
+      "Play Next, queue tracks, and navigate your session timeline.",
+  },
+  {
+    icon: Heart,
+    title: "Favourites",
+    description: "Heart tracks from album and genre lists for quick recall.",
   },
   {
     icon: SlidersHorizontal,
@@ -52,10 +53,14 @@ const features = [
     description: "Eight-band equalizer with graph view and factory presets.",
   },
   {
-    icon: ShieldCheck,
-    title: "Library Audit",
-    description:
-      "Auto-detect duplicates, fix metadata, and clean your library.",
+    icon: Palette,
+    title: "Theme Presets",
+    description: "Seven OKLCH palettes with light, dark, or system appearance.",
+  },
+  {
+    icon: Lock,
+    title: "Privacy First",
+    description: "Your music stays on your Mac. No tracking, no telemetry.",
   },
 ];
 
@@ -71,6 +76,8 @@ export function SmileFeatures() {
             Everything you need
           </h2>
         </div>
+
+        <SmileWidgetShowcase />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-border">
           {features.map(({ icon: Icon, title, description }) => (

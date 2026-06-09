@@ -8,7 +8,7 @@ export function LaughHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-header-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/laugh" className="flex items-center gap-2">
@@ -19,7 +19,7 @@ export function LaughHeader() {
           <span className="hidden md:block text-border">|</span>
           <Link
             href="/"
-            className="hidden md:block text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="hidden md:block text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Advision
           </Link>
@@ -28,20 +28,20 @@ export function LaughHeader() {
         <nav className="hidden md:flex items-center gap-8">
           <Link
             href="#features"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Features
           </Link>
           <Link
             href="#library"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
             Library
           </Link>
           <Button
             size="sm"
-            variant="outline"
-            className="text-foreground border-border hover:bg-secondary"
+            variant="secondary"
+            className="bg-foreground text-background hover:bg-foreground/90"
           >
             Download
           </Button>
@@ -82,19 +82,19 @@ export function LaughHeader() {
           <div className="px-6 py-4 flex flex-col gap-4">
             <Link
               href="#features"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
               Features
             </Link>
             <Link
               href="#library"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
               Library
             </Link>
             <Link
               href="/"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
               Advision
             </Link>

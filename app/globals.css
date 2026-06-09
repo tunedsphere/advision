@@ -1,47 +1,54 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.08 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.08 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.95 0 0);
-  --primary-foreground: oklch(0.05 0 0);
-  --secondary: oklch(0.12 0 0);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.12 0 0);
-  --muted-foreground: oklch(0.55 0 0);
-  --accent: oklch(0.95 0 0);
-  --accent-foreground: oklch(0.05 0 0);
+  --background: oklch(0.14 0.012 255);
+  --foreground: oklch(0.87 0.006 255);
+  --card: oklch(0.17 0.012 255);
+  --card-foreground: oklch(0.87 0.006 255);
+  --popover: oklch(0.17 0.012 255);
+  --popover-foreground: oklch(0.87 0.006 255);
+  --primary: oklch(0.87 0.006 255);
+  --primary-foreground: oklch(0.14 0.012 255);
+  --secondary: oklch(0.21 0.013 255);
+  --secondary-foreground: oklch(0.87 0.006 255);
+  --muted: oklch(0.21 0.013 255);
+  --muted-foreground: oklch(0.53 0.014 255);
+  --accent: oklch(0.87 0.006 255);
+  --accent-foreground: oklch(0.14 0.012 255);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.18 0 0);
-  --input: oklch(0.12 0 0);
-  --ring: oklch(0.95 0 0);
+  --border: oklch(0.25 0.014 255);
+  --input: oklch(0.21 0.013 255);
+  --ring: oklch(0.87 0.006 255);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.75rem;
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.98 0 0);
-  --sidebar-primary-foreground: oklch(0.08 0 0);
-  --sidebar-accent: oklch(0.18 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.22 0 0);
+  --sidebar: oklch(0.18 0.012 255);
+  --sidebar-foreground: oklch(0.87 0.006 255);
+  --sidebar-primary: oklch(0.87 0.006 255);
+  --sidebar-primary-foreground: oklch(0.14 0.012 255);
+  --sidebar-accent: oklch(0.25 0.014 255);
+  --sidebar-accent-foreground: oklch(0.87 0.006 255);
+  --sidebar-border: oklch(0.28 0.014 255);
   --sidebar-ring: oklch(0.72 0.19 340);
+
+  --header-background: oklch(0.19 0.013 255);
+  --header-foreground: oklch(0.82 0.008 255);
+
+  --product-background: oklch(0.11 0.010 255);
+  --product-foreground: oklch(0.68 0.012 255);
+  --product-border: oklch(0.50 0.016 255);
 }
 
 .dark {
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(0.95 0 0);
+  --background: oklch(0.9551 0 0);
+  --foreground: oklch(0.3211 0 0);
   --card: oklch(0.08 0 0);
   --card-foreground: oklch(0.95 0 0);
   --popover: oklch(0.08 0 0);
@@ -76,7 +83,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -113,6 +120,12 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-header-background: var(--header-background);
+  --color-header-foreground: var(--header-foreground);
+  --color-product-background: var(--product-background);
+  --color-product-foreground: var(--product-foreground);
+  --color-product-border: var(--product-border);
+  --color-product-foreground: var(--product-foreground);
 }
 
 @layer base {
@@ -121,5 +134,451 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@keyframes smile-wave-track {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.smile-wave-track {
+  animation: smile-wave-track 18s linear infinite;
+  will-change: transform;
+}
+
+.smile-wave-hero-track {
+  animation: smile-wave-track 36s linear infinite;
+  will-change: transform;
+}
+
+.smile-wave-hero-track-slow {
+  animation: smile-wave-track 48s linear infinite;
+  will-change: transform;
+}
+
+@keyframes smile-wave-hero-lane-breathe {
+  0%,
+  100% {
+    transform: scaleY(0.72);
+  }
+  50% {
+    transform: scaleY(1.35);
+  }
+}
+
+@keyframes smile-wave-bar-breathe {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+    opacity: 0.42;
+  }
+  40% {
+    transform: scaleY(1.35);
+    opacity: 0.72;
+  }
+  70% {
+    transform: scaleY(0.68);
+    opacity: 0.52;
+  }
+}
+
+@keyframes smile-wave-bar-breathe-tall {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+    opacity: 0.38;
+  }
+  45% {
+    transform: scaleY(1.75);
+    opacity: 0.85;
+  }
+  75% {
+    transform: scaleY(0.78);
+    opacity: 0.55;
+  }
+}
+
+.smile-wave-hero-lane-breathe {
+  animation: smile-wave-hero-lane-breathe 9s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.smile-wave-bar-breathe {
+  transform-origin: center center;
+  animation: smile-wave-bar-breathe ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.smile-wave-bar-breathe-tall {
+  transform-origin: center center;
+  animation: smile-wave-bar-breathe-tall ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Smile download page — install preview animations */
+@keyframes smile-dl-progress {
+  0% {
+    width: 0%;
+  }
+  35% {
+    width: 0%;
+  }
+  70% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes smile-dl-button-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes smile-dl-cursor-toolbar {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translate(40px, 120px);
+  }
+  28%,
+  34% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  36%,
+  40% {
+    transform: translate(0, 0) scale(0.84);
+  }
+  42%,
+  48% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes smile-dl-popover-reveal {
+  0%,
+  38% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-4px);
+  }
+  48%,
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes smile-dl-toolbar-icon-active {
+  0%,
+  30% {
+    background-color: rgb(251 146 60 / 0.22);
+    transform: scale(1);
+  }
+  36%,
+  50% {
+    background-color: rgb(251 146 60 / 0.48);
+    transform: scale(1.06);
+  }
+  54%,
+  100% {
+    background-color: rgb(251 146 60 / 0.34);
+    transform: scale(1);
+  }
+}
+
+@keyframes smile-dl-cursor-popover {
+  0%,
+  46% {
+    opacity: 0;
+    transform: translate(28px, 32px);
+  }
+  54%,
+  60% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  62%,
+  66% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.84);
+  }
+  68%,
+  74% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  78%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes smile-dl-dmg-row-active {
+  0%,
+  58% {
+    background-color: rgb(255 255 255 / 0.06);
+    border-color: rgb(255 255 255 / 0.1);
+    transform: scale(1);
+  }
+  62%,
+  70% {
+    background-color: rgb(251 146 60 / 0.22);
+    border-color: rgb(251 146 60 / 0.35);
+    transform: scale(0.98);
+  }
+  74%,
+  100% {
+    background-color: rgb(251 146 60 / 0.16);
+    border-color: rgb(251 146 60 / 0.28);
+    transform: scale(1);
+  }
+}
+
+@keyframes smile-dmg-drag-icon {
+  0%,
+  20% {
+    transform: translate(0, 0);
+  }
+  70%,
+  100% {
+    transform: translate(158px, -8px);
+  }
+}
+
+@keyframes smile-dmg-drag-icon-bleed {
+  0%,
+  20% {
+    transform: translate(0, 0);
+  }
+  70%,
+  100% {
+    transform: translate(228px, -10px);
+  }
+}
+
+@keyframes smile-dmg-drag-cursor {
+  0%,
+  18% {
+    opacity: 0;
+  }
+  24%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes smile-launch-cursor-dblclick {
+  0%,
+  20% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  28%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  36%,
+  40% {
+    opacity: 1;
+    transform: scale(0.82);
+  }
+  44%,
+  48% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  52%,
+  56% {
+    opacity: 1;
+    transform: scale(0.82);
+  }
+  60%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes smile-launch-app-pulse {
+  0%,
+  55% {
+    transform: scale(1);
+  }
+  65%,
+  75% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.smile-dl-progress {
+  animation: smile-dl-progress 3.2s ease-out infinite;
+}
+
+.smile-dl-button-pulse {
+  animation: smile-dl-button-pulse 1.6s ease-in-out infinite;
+}
+
+.smile-dl-animate-once.smile-dl-cursor-toolbar,
+.smile-dl-animate-once.smile-dl-popover-reveal,
+.smile-dl-animate-once.smile-dl-toolbar-icon-active,
+.smile-dl-animate-once.smile-dl-cursor-popover,
+.smile-dl-animate-once.smile-dl-dmg-row-active {
+  animation-duration: 6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.smile-dl-cursor-toolbar {
+  position: absolute;
+  right: 1rem;
+  top: 2.75rem;
+  animation: smile-dl-cursor-toolbar 4s ease-out infinite;
+}
+
+.smile-dl-cursor-toolbar-bleed {
+  right: 1.25rem;
+  top: 3.25rem;
+  animation-name: smile-dl-cursor-toolbar-bleed;
+}
+
+@keyframes smile-dl-cursor-toolbar-bleed {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translate(72px, 240px);
+  }
+  28%,
+  34% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  36%,
+  40% {
+    transform: translate(0, 0) scale(0.84);
+  }
+  42%,
+  48% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.smile-dl-popover-reveal {
+  animation: smile-dl-popover-reveal 4s ease-out infinite;
+}
+
+.smile-dl-toolbar-icon-active {
+  animation: smile-dl-toolbar-icon-active 4s ease-out infinite;
+}
+
+.smile-dl-cursor-popover {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  margin-top: -0.625rem;
+  animation: smile-dl-cursor-popover 4s ease-out infinite;
+}
+
+.smile-dl-cursor-popover-bleed {
+  right: 0.75rem;
+  margin-top: -0.75rem;
+}
+
+.smile-dl-dmg-row-active {
+  animation: smile-dl-dmg-row-active 4s ease-out infinite;
+}
+
+.smile-dmg-drag-icon {
+  animation: smile-dmg-drag-icon 3.2s ease-in-out infinite;
+}
+
+.smile-dmg-drag-icon-bleed {
+  animation-name: smile-dmg-drag-icon-bleed;
+}
+
+.smile-dmg-drag-cursor {
+  animation: smile-dmg-drag-cursor 3.2s ease-in-out infinite;
+}
+
+.smile-launch-cursor-dblclick {
+  animation: smile-launch-cursor-dblclick 3.2s ease-out infinite;
+}
+
+.smile-launch-app-pulse {
+  animation: smile-launch-app-pulse 3.2s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smile-wave-track,
+  .smile-wave-hero-track,
+  .smile-wave-hero-track-slow,
+  .smile-wave-hero-lane-breathe,
+  .smile-wave-bar-breathe,
+  .smile-wave-bar-breathe-tall,
+  .smile-dl-progress,
+  .smile-dl-button-pulse,
+  .smile-dl-cursor-toolbar,
+  .smile-dl-popover-reveal,
+  .smile-dl-toolbar-icon-active,
+  .smile-dl-cursor-popover,
+  .smile-dl-dmg-row-active,
+  .smile-dmg-drag-icon,
+  .smile-dmg-drag-cursor,
+  .smile-launch-cursor-dblclick,
+  .smile-launch-app-pulse {
+    animation: none;
+  }
+
+  .smile-dl-cursor-toolbar,
+  .smile-dl-cursor-toolbar-bleed {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  .smile-dl-popover-reveal {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  .smile-dl-toolbar-icon-active {
+    background-color: rgb(251 146 60 / 0.4);
+    transform: scale(1);
+  }
+
+  .smile-dl-dmg-row-active {
+    background-color: rgb(251 146 60 / 0.16);
+    border-color: rgb(251 146 60 / 0.28);
+    transform: scale(1);
   }
 }

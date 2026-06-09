@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SmileHeader } from "@/components/smile/header";
+import { SmileHeaderShell } from "@/components/smile/header-shell";
 import { SmileHero } from "@/components/smile/hero";
 import { SmileFeatures } from "@/components/smile/features";
 import { SmilePersonalization } from "@/components/smile/personalization";
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function SmilePage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <SmileHeader />
+      <SmileHeaderShell />
       <SmileHero />
       <SmileFeatures />
       <SmilePersonalization />

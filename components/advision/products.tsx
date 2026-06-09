@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export function Products() {
   return (
-    <section className="relative">
-      <div className="border-t border-border" />
+    <section className="relative bg-product-background">
+      <div className="border-t border-product-border" />
 
       <div className="relative h-[600px] md:h-[900px] overflow-hidden group/section">
         {/* Diagonal divider BACK — behind images, visible in title area */}
@@ -20,7 +20,7 @@ export function Products() {
               y1="0"
               x2="60"
               y2="100"
-              stroke="var(--background)"
+              stroke="var(--product-background)"
               strokeWidth="12"
               vectorEffect="non-scaling-stroke"
             />
@@ -29,7 +29,7 @@ export function Products() {
               y1="0"
               x2="60"
               y2="100"
-              stroke="var(--border)"
+              stroke="var(--product-border)"
               strokeWidth="1.5"
               vectorEffect="non-scaling-stroke"
             />
@@ -39,12 +39,12 @@ export function Products() {
         {/* Left side - Smile */}
         <Link
           href="/smile"
-          className="absolute inset-0 group/left cursor-pointer z-20"
+          className="absolute inset-0 group/left cursor-pointer z-20 "
           style={{ clipPath: "polygon(0 0, 60% 0, 40% 100%, 0 100%)" }}
         >
-          <div className="absolute inset-0 bg-linear-to-br from-rose-400/10 via-background to-transparent opacity-0 group-hover/left:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-linear-to-br from-rose-400/10 via-background to-transparent opacity-0 group-hover/left:opacity-100 transition-opacity duration-500 bg-header-background/80" />
           <div
-            className="absolute overflow-hidden rounded-tl-2xl"
+            className="absolute overflow-hidden rounded-tl-2xl "
             style={{ top: "220px", left: "40px", right: 0, bottom: 0 }}
           >
             <img
@@ -60,9 +60,9 @@ export function Products() {
             />
             <div
               className="absolute inset-0 transition-all duration-500"
-              style={{ background: "hsl(var(--background) / 0.5)" }}
+              style={{ background: "hsl(var(--background) / 0.2)" }}
             />
-            <div className="absolute inset-0 bg-background/30 group-hover/left:bg-background/0 group-hover/section:bg-background/40 group-hover/left:!bg-background/10 transition-all duration-500" />
+            <div className="absolute inset-0 bg-background/10 group-hover/left:bg-background/0 group-hover/section:bg-background/35 group-hover/left:!bg-background/5 transition-all duration-500" />
           </div>
         </Link>
 
@@ -90,9 +90,9 @@ export function Products() {
             />
             <div
               className="absolute inset-0 transition-all duration-500"
-              style={{ background: "hsl(var(--background) / 0.5)" }}
+              style={{ background: "hsl(var(--background) / 0.2)" }}
             />
-            <div className="absolute inset-0 bg-background/30 group-hover/right:bg-background/0 group-hover/section:bg-background/40 group-hover/right:!bg-background/10 transition-all duration-500" />
+            <div className="absolute inset-0 bg-background/10 group-hover/right:bg-background/0 group-hover/section:bg-background/35 group-hover/right:!bg-background/5 transition-all duration-500" />
           </div>
         </Link>
 
@@ -145,22 +145,22 @@ export function Products() {
                 <linearGradient id="dividerFade" x1="0" y1="0" x2="0" y2="1">
                   <stop
                     offset="0%"
-                    stopColor="var(--background)"
+                    stopColor="var(--product-background)"
                     stopOpacity="1"
                   />
                   <stop
                     offset="25%"
-                    stopColor="var(--background)"
+                    stopColor="var(--product-background)"
                     stopOpacity="1"
                   />
                   <stop
                     offset="75%"
-                    stopColor="var(--background)"
+                    stopColor="var(--product-background)"
                     stopOpacity="0"
                   />
                   <stop
                     offset="100%"
-                    stopColor="var(--background)"
+                    stopColor="var(--product-background)"
                     stopOpacity="0"
                   />
                 </linearGradient>
@@ -189,7 +189,7 @@ export function Products() {
               y1="0"
               x2="40"
               y2="100"
-              stroke="var(--border)"
+              stroke="var(--product-border)"
               strokeWidth="1.5"
               vectorEffect="non-scaling-stroke"
             />
@@ -197,7 +197,7 @@ export function Products() {
         </div>
       </div>
 
-      <div className="border-t border-border" />
+      <div className="border-t border-product-border" />
     </section>
   );
 }
