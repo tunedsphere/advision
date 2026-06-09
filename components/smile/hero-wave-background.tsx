@@ -89,8 +89,7 @@ export function HeroWaveBackground() {
   }, []);
 
   const strip = useMemo(
-    () =>
-      buildWaveStrip(stripWidthForWave(waveWidth, BAR_UNIT), BAR_UNIT),
+    () => buildWaveStrip(stripWidthForWave(waveWidth, BAR_UNIT), BAR_UNIT),
     [waveWidth],
   );
 
@@ -98,12 +97,12 @@ export function HeroWaveBackground() {
 
   return (
     <div
-      className="pointer-events-none absolute inset-x-0 top-8 z-0 flex justify-center px-6"
+      className="pointer-events-none absolute inset-x-0 top-8 z-0 h-[min(680px,72vh)] px-6"
       aria-hidden
     >
       <div
         ref={containerRef}
-        className="relative h-[min(680px,72vh)] w-full max-w-12xl overflow-hidden"
+        className="relative mx-auto h-full w-full max-w-12xl overflow-hidden"
       >
         <div className="smile-wave-hero-mask smile-wave-hero-lane-breathe absolute inset-0 flex items-center">
           <div
@@ -130,10 +129,17 @@ export function HeroWaveBackground() {
           </div>
         </div>
 
-        <div className="absolute inset-0 bg-linear-to-b from-background from-0% via-transparent via-62% to-background to-100%" />
-        <div className="smile-wave-hero-center-vignette" aria-hidden />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent from-0% via-transparent via-55% to-background to-100%" />
         <div className="smile-wave-hero-edge-fade-left" aria-hidden />
         <div className="smile-wave-hero-edge-fade-right" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 z-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 50% 50%, oklch(0.14 0.012 255 / 0.9) 0%, oklch(0.14 0.012 255 / 0.45) 48%, oklch(0.14 0.012 255 / 0) 72%)",
+          }}
+          aria-hidden
+        />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ import type { ProductReleaseConfig, ResolvedProductRelease } from "./types";
 export const SMILE_RELEASE_CONFIG: ProductReleaseConfig = {
   productId: "smile",
   productName: "Smile",
-  version: "0.9.14",
+  version: "0.9.15",
   installerFileName: (version) => `Smile-${version}.dmg`,
   requirements: [
     { label: "macOS", value: "14 Sonoma or later" },
