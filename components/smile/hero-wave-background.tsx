@@ -5,24 +5,13 @@ import { useEffect, useMemo, useRef, useState } from "react";
 const BAR_WIDTH = 3;
 const BAR_GAP = 2;
 const BAR_UNIT = BAR_WIDTH + BAR_GAP;
-const TRACK_DURATION_MS = 36_000;
+const WAVE_MAX_WIDTH_PX = 1536;
 
 const BAR_HEIGHTS = [
   28, 56, 38, 72, 44, 84, 32, 64, 26, 76, 48, 36, 66, 42, 54, 34, 78, 28, 58,
   40, 32, 68, 46, 36, 72, 26, 54, 44, 62, 34, 84, 42, 48, 66, 30, 46, 58, 38,
   76, 48,
 ];
-
-function detectGecko() {
-  if (typeof window === "undefined") return false;
-  const ua = navigator.userAgent.toLowerCase();
-  if (/firefox|zen/.test(ua)) return true;
-  return (
-    typeof CSS !== "undefined" &&
-    CSS.supports("-moz-appearance", "none") &&
-    !/chrome|chromium|edg\//.test(ua)
-  );
-}
 
 function buildWaveStrip(minWidthPx: number, barUnit: number) {
   const count = Math.ceil(minWidthPx / barUnit);
@@ -32,11 +21,9 @@ function buildWaveStrip(minWidthPx: number, barUnit: number) {
   );
 }
 
-function barMotionStyle(index: number, isGecko: boolean) {
-  const duration = isGecko
-    ? 3.2 + (index % 5) * 0.4
-    : 2.6 + (index % 6) * 0.35;
-  const delay = (index * (isGecko ? 0.17 : 0.13)) % 5;
+function barMotionStyle(index: number) {
+  const duration = 2.6 + (index % 6) * 0.35;
+  const delay = (index * 0.13) % 5;
 
   return {
     animationDuration: `${duration}s`,
@@ -47,11 +34,9 @@ function barMotionStyle(index: number, isGecko: boolean) {
 function WaveBars({
   heights,
   indexOffset = 0,
-  isGecko = false,
 }: {
   heights: number[];
   indexOffset?: number;
-  isGecko?: boolean;
 }) {
   return (
     <>
@@ -67,7 +52,7 @@ function WaveBars({
             }`}
             style={{
               height: `${height}px`,
-              ...barMotionStyle(index, isGecko),
+              ...barMotionStyle(index),
             }}
           >
             <span className="smile-wave-bar-gradient block h-full w-full rounded-full" />
@@ -78,101 +63,78 @@ function WaveBars({
   );
 }
 
-/** Each strip half must cover the full viewport so the loop never exposes empty space. */
-function stripWidthForViewport(viewportPx: number, barUnit: number) {
-  return Math.ceil(viewportPx / barUnit) * barUnit;
+/** Each strip half must cover the wave width so the loop never exposes empty space. */
+function stripWidthForWave(waveWidthPx: number, barUnit: number) {
+  return Math.ceil(waveWidthPx / barUnit) * barUnit;
 }
 
 export function HeroWaveBackground() {
-  const [viewportWidth, setViewportWidth] = useState(3840);
-  const [isGecko, setIsGecko] = useState(false);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [waveWidth, setWaveWidth] = useState(WAVE_MAX_WIDTH_PX);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsGecko(detectGecko());
-  }, []);
+    const container = containerRef.current;
+    if (!container) return;
 
-  useEffect(() => {
-    const update = () => setViewportWidth(window.innerWidth);
+    const update = () => {
+      const width = Math.round(container.getBoundingClientRect().width);
+      if (width > 0) setWaveWidth(width);
+    };
+
     update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+
+    const observer = new ResizeObserver(update);
+    observer.observe(container);
+    return () => observer.disconnect();
   }, []);
 
   const strip = useMemo(
     () =>
-      buildWaveStrip(stripWidthForViewport(viewportWidth, BAR_UNIT), BAR_UNIT),
-    [viewportWidth],
+      buildWaveStrip(stripWidthForWave(waveWidth, BAR_UNIT), BAR_UNIT),
+    [waveWidth],
   );
 
   const stripWidthPx = strip.length * BAR_UNIT;
 
-  useEffect(() => {
-    if (!isGecko) return;
-
-    const track = trackRef.current;
-    if (!track) return;
-
-    track.style.animation = "none";
-
-    const start = performance.now();
-    let rafId = 0;
-
-    const tick = (now: number) => {
-      const elapsed = (now - start) % TRACK_DURATION_MS;
-      const progress = elapsed / TRACK_DURATION_MS;
-      const x = -stripWidthPx * (1 - progress);
-      track.style.transform = `translate3d(${x}px, 0, 0)`;
-      rafId = requestAnimationFrame(tick);
-    };
-
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, [isGecko, stripWidthPx]);
-
   return (
     <div
-      className={`pointer-events-none absolute left-1/2 top-8 z-0 h-[min(680px,72vh)] w-screen -translate-x-1/2 overflow-hidden${
-        isGecko ? " smile-wave-hero--gecko" : ""
-      }`}
+      className="pointer-events-none absolute inset-x-0 top-8 z-0 flex justify-center px-6"
       aria-hidden
     >
       <div
-        className={`absolute inset-0 flex items-center${
-          isGecko ? "" : " smile-wave-hero-lane-breathe"
-        }`}
+        ref={containerRef}
+        className="relative h-[min(680px,72vh)] w-full max-w-12xl overflow-hidden"
       >
-        <div
-          ref={trackRef}
-          className="smile-wave-hero-track absolute left-0 flex h-full items-center opacity-95"
-          style={
-            {
-              width: stripWidthPx * 2,
-              "--wave-shift": `${stripWidthPx}px`,
-            } as React.CSSProperties
-          }
-        >
+        <div className="smile-wave-hero-mask smile-wave-hero-lane-breathe absolute inset-0 flex items-center">
           <div
-            className="flex h-full shrink-0 items-center gap-[2px]"
-            style={{ width: stripWidthPx }}
+            className="smile-wave-hero-track absolute left-0 flex h-full items-center opacity-95"
+            style={
+              {
+                width: stripWidthPx * 2,
+                "--wave-shift": `${stripWidthPx}px`,
+              } as React.CSSProperties
+            }
           >
-            <WaveBars heights={strip} indexOffset={0} isGecko={isGecko} />
-          </div>
-          <div
-            className="flex h-full shrink-0 items-center gap-[2px]"
-            style={{ width: stripWidthPx }}
-          >
-            <WaveBars
-              heights={strip}
-              indexOffset={strip.length}
-              isGecko={isGecko}
-            />
+            <div
+              className="flex h-full shrink-0 items-center gap-[2px]"
+              style={{ width: stripWidthPx }}
+            >
+              <WaveBars heights={strip} indexOffset={0} />
+            </div>
+            <div
+              className="flex h-full shrink-0 items-center gap-[2px]"
+              style={{ width: stripWidthPx }}
+            >
+              <WaveBars heights={strip} indexOffset={strip.length} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="absolute inset-0 bg-linear-to-b from-background from-0% via-transparent via-62% to-background to-100%" />
-      <div className="absolute inset-0 bg-linear-to-r from-background from-0% via-transparent via-65% to-background to-100% opacity-55" />
+        <div className="absolute inset-0 bg-linear-to-b from-background from-0% via-transparent via-62% to-background to-100%" />
+        <div className="smile-wave-hero-center-vignette" aria-hidden />
+        <div className="smile-wave-hero-edge-fade-left" aria-hidden />
+        <div className="smile-wave-hero-edge-fade-right" aria-hidden />
+      </div>
     </div>
   );
 }

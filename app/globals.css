@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme inline {
+  --max-width-12xl: 96rem;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -236,22 +240,67 @@
   animation: smile-wave-bar-breathe-tall ease-in-out infinite;
 }
 
-/* Firefox / Zen: fewer compositor layers, no lane-scale + CSS track scroll. */
-.smile-wave-hero--gecko .smile-wave-hero-track {
-  animation: none;
-  contain: layout style paint;
+.smile-wave-hero-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 11%,
+    #000 89%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 11%,
+    #000 89%,
+    transparent 100%
+  );
 }
 
-.smile-wave-hero--gecko .smile-wave-bar-breathe,
-.smile-wave-hero--gecko .smile-wave-bar-breathe-tall {
-  backface-visibility: hidden;
+.smile-wave-hero-edge-fade-left,
+.smile-wave-hero-edge-fade-right {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(7rem, 18%);
+  z-index: 2;
 }
 
-/* Gecko won't paint linear-gradient on scaled subtrees — fake it with solids. */
-.smile-wave-hero--gecko .smile-wave-bar-gradient {
-  background-color: rgb(250 204 21 / 0.35);
-  background-image: none;
-  box-shadow: inset 0 40% 0 0 rgb(251 113 133 / 0.5);
+.smile-wave-hero-edge-fade-left {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--background) 0%,
+    color-mix(in oklch, var(--background) 72%, transparent) 45%,
+    transparent 100%
+  );
+  backdrop-filter: blur(6px);
+}
+
+.smile-wave-hero-edge-fade-right {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--background) 0%,
+    color-mix(in oklch, var(--background) 72%, transparent) 45%,
+    transparent 100%
+  );
+  backdrop-filter: blur(6px);
+}
+
+.smile-wave-hero-center-vignette {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(
+    ellipse min(36rem, 78%) min(22rem, 48%) at 50% 36%,
+    color-mix(in oklch, var(--background) 92%, transparent) 0%,
+    color-mix(in oklch, var(--background) 68%, transparent) 38%,
+    color-mix(in oklch, var(--background) 28%, transparent) 58%,
+    transparent 74%
+  );
 }
 
 /* Smile download page — install preview animations */
