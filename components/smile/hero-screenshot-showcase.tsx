@@ -87,7 +87,7 @@ export function HeroScreenshotShowcase() {
 
   return (
     <div ref={showcaseRef} className="w-full min-w-0 pb-4 sm:pb-6">
-      <div className="relative aspect-[1444/619] w-full max-w-full overflow-hidden rounded-xl border border-border bg-card/40 shadow-lg md:rounded-2xl md:shadow-2xl">
+      <div className="border-border bg-card/40 relative aspect-[1444/619] w-full max-w-full overflow-hidden rounded-xl border shadow-lg md:rounded-2xl md:shadow-2xl">
         {FRAMES.map((frame, index) => {
           const isActive = index === activeIndex;
 
@@ -120,8 +120,8 @@ export function HeroScreenshotShowcase() {
               key={frame.src}
               className={`h-1.5 rounded-full transition-[width,background-color] duration-200 ${
                 isActive
-                  ? "w-6 bg-foreground/70"
-                  : "w-1.5 bg-muted-foreground/30"
+                  ? "bg-foreground/70 w-6"
+                  : "bg-muted-foreground/30 w-1.5"
               }`}
             />
           );

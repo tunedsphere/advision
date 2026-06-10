@@ -11,8 +11,8 @@ export function SmileHero() {
     <section className="relative overflow-x-hidden px-6 pt-32 pb-8 sm:pb-16">
       <HeroWaveBackground />
 
-      <div className="relative z-10 max-w-6xl mx-auto text-center sm:pb-16 pb-8 md:pb-32">
-        <div className="flex justify-center mb-6">
+      <div className="relative z-10 mx-auto max-w-6xl pb-8 text-center sm:pb-16 md:pb-32">
+        <div className="mb-6 flex justify-center">
           <Image
             src="/smile/icon.png"
             alt="Smile app icon"
@@ -23,7 +23,7 @@ export function SmileHero() {
           />
         </div>
 
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6 tracking-tight leading-[1.08]">
+        <h1 className="text-foreground mb-6 text-5xl leading-[1.08] font-semibold tracking-tight md:text-6xl lg:text-7xl">
           Your Music
           <br />
           <span className="bg-linear-to-r from-rose-400 to-yellow-400 bg-clip-text text-transparent">
@@ -31,7 +31,7 @@ export function SmileHero() {
           </span>
         </h1>
 
-        <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-md mx-auto">
+        <p className="text-muted-foreground mx-auto mb-8 max-w-md text-lg leading-relaxed">
           A personalized music experience with powerful tag management and
           metadata editing. Clean, simple, designed for you.
         </p>
@@ -40,7 +40,7 @@ export function SmileHero() {
           downloadUrl={release.downloadUrl}
           fileName={fileName}
           size="lg"
-          className="rounded-full bg-foreground text-background hover:bg-foreground/90 gap-2"
+          className="bg-foreground text-background hover:bg-foreground/90 gap-2 rounded-full"
         >
           <svg
             className="h-4 w-4"
@@ -53,14 +53,14 @@ export function SmileHero() {
           Download for macOS
         </SmileDownloadButton>
 
-        <p className="text-xs text-muted-foreground mt-3">
+        <p className="text-muted-foreground mt-3 text-xs">
           Free · macOS 14+ · Apple Silicon
         </p>
-        <p className="text-xs text-muted-foreground/70 mt-1">
+        <p className="text-muted-foreground/70 mt-1 text-xs">
           Windows not available yet
         </p>
       </div>
-      <div className="relative z-10 mx-auto mt-16 min-w-0 max-w-6xl border-t border-border pt-4 sm:pt-8 md:pt-16">
+      <div className="border-border relative z-10 mx-auto mt-16 max-w-6xl min-w-0 border-t pt-4 sm:pt-8 md:pt-16">
         <HeroScreenshotShowcase />
       </div>
     </section>

@@ -2,7 +2,6 @@
 
 import {
   motion,
-  useMotionTemplate,
   useMotionValue,
   useReducedMotion,
   useSpring,
@@ -12,6 +11,7 @@ import type { LucideIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+const DEFAULT_ACTIVE_INDEX = 4;
 
 export type FeatureItem = {
   icon: LucideIcon;
@@ -25,13 +25,63 @@ function waveDelay(index: number) {
   return row * 0.09 + col * 0.07;
 }
 
+const GLOW_ANCHORS = [
+  "10% 12%",
+  "90% 10%",
+  "14% 88%",
+  "86% 90%",
+  "52% 6%",
+  "8% 52%",
+  "92% 50%",
+  "50% 94%",
+  "78% 18%",
+] as const;
+
+const GLOW_ACCENTS = [
+  {
+    inner: "oklch(0.72 0.19 15 / 0.16)",
+    mid: "oklch(0.78 0.14 85 / 0.04)",
+    icon: "text-rose-300",
+    shadow: "0 0 24px oklch(0.72 0.19 15 / 0.12)",
+  },
+  {
+    inner: "oklch(0.7 0.19 55 / 0.16)",
+    mid: "oklch(0.75 0.16 45 / 0.04)",
+    icon: "text-orange-300",
+    shadow: "0 0 24px oklch(0.7 0.19 55 / 0.12)",
+  },
+  {
+    inner: "oklch(0.82 0.16 90 / 0.14)",
+    mid: "oklch(0.78 0.14 85 / 0.05)",
+    icon: "text-yellow-300",
+    shadow: "0 0 24px oklch(0.82 0.16 90 / 0.12)",
+  },
+] as const;
+
+function cardAccent(index: number) {
+  return GLOW_ACCENTS[index % GLOW_ACCENTS.length];
+}
+
+function cardGlow(index: number) {
+  const anchor = GLOW_ANCHORS[index % GLOW_ANCHORS.length];
+  const accent = cardAccent(index);
+  return `
+    radial-gradient(520px circle at ${anchor}, oklch(0.92 0.018 255 / 0.09), transparent 58%),
+    radial-gradient(200px circle at ${anchor}, ${accent.inner}, ${accent.mid} 42%, transparent 72%)
+  `;
+}
+
 function FeatureCard({
   feature,
   index,
+  isActive,
+  onActivate,
   reduceMotion,
 }: {
   feature: FeatureItem;
   index: number;
+  isActive: boolean;
+  onActivate: () => void;
   reduceMotion: boolean;
 }) {
   const { icon: Icon, title, description } = feature;
@@ -45,10 +95,6 @@ function FeatureCard({
   const rotateX = useTransform(smoothY, [0, 1], [7, -7]);
   const rotateY = useTransform(smoothX, [0, 1], [-7, 7]);
 
-  const spotlightX = useMotionValue(0);
-  const spotlightY = useMotionValue(0);
-  const spotlight = useMotionTemplate`radial-gradient(420px circle at ${spotlightX}px ${spotlightY}px, rgba(251, 113, 133, 0.14), rgba(250, 204, 21, 0.06) 38%, transparent 68%)`;
-
   useEffect(() => {
     setCanTilt(window.matchMedia("(hover: hover) and (pointer: fine)").matches);
   }, []);
@@ -57,13 +103,10 @@ function FeatureCard({
     const rect = cardRef.current?.getBoundingClientRect();
     if (!rect) return;
 
+    if (!canTilt || reduceMotion) return;
+
     const px = event.clientX - rect.left;
     const py = event.clientY - rect.top;
-
-    spotlightX.set(px);
-    spotlightY.set(py);
-
-    if (!canTilt || reduceMotion) return;
 
     mouseX.set(px / rect.width);
     mouseY.set(py / rect.height);
@@ -72,16 +115,16 @@ function FeatureCard({
   const handlePointerLeave = () => {
     mouseX.set(0.5);
     mouseY.set(0.5);
-    spotlightX.set(0);
-    spotlightY.set(0);
   };
 
   const indexLabel = String(index + 1).padStart(2, "0");
+  const accent = cardAccent(index);
 
   return (
     <motion.div
       ref={cardRef}
-      className="group relative border-r border-b border-border p-8"
+      className="border-border relative border-r border-b p-2"
+      onMouseEnter={onActivate}
       style={canTilt && !reduceMotion ? { perspective: 900 } : undefined}
       initial={
         reduceMotion
@@ -103,7 +146,7 @@ function FeatureCard({
       onPointerLeave={handlePointerLeave}
     >
       <motion.div
-        className="relative h-full"
+        className="relative h-full p-6"
         style={
           canTilt && !reduceMotion
             ? { rotateX, rotateY, transformStyle: "preserve-3d" }
@@ -111,39 +154,33 @@ function FeatureCard({
         }
       >
         {!reduceMotion ? (
-          <motion.div
-            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            style={{ background: spotlight }}
+          <div
+            className={`pointer-events-none absolute inset-0 rounded-sm mix-blend-screen transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}
+            style={{ background: cardGlow(index) }}
             aria-hidden
           />
         ) : null}
 
-        <span className="pointer-events-none absolute top-6 right-6 font-mono text-[10px] tracking-widest text-muted-foreground/40 tabular-nums">
+        <span className="text-muted-foreground/40 pointer-events-none absolute top-6 right-6 font-mono text-[10px] tracking-widest tabular-nums">
           {indexLabel}
         </span>
 
         <motion.div
-          className="relative mb-5 flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary shadow-sm"
-          whileHover={
-            reduceMotion ? undefined : { scale: 1.08, rotate: -4 }
-          }
+          className={`border-border bg-secondary relative mb-5 flex h-9 w-9 items-center justify-center rounded-lg border shadow-sm transition-[background-color,border-color,box-shadow] duration-300 ${isActive ? "border-foreground/10 bg-card" : ""}`}
+          style={isActive ? { boxShadow: accent.shadow } : undefined}
+          whileHover={reduceMotion ? undefined : { scale: 1.06, rotate: -3 }}
           transition={{ type: "spring", stiffness: 420, damping: 18 }}
         >
-          <motion.div
-            className="absolute inset-0 rounded-lg bg-linear-to-br from-rose-400/20 to-yellow-400/10 opacity-0 group-hover:opacity-100"
-            transition={{ duration: 0.25 }}
-            aria-hidden
-          />
           <Icon
-            className="relative h-4 w-4 text-rose-400"
+            className={`relative h-4 w-4 transition-colors duration-300 ${isActive ? accent.icon : "text-muted-foreground"}`}
             strokeWidth={1.75}
           />
         </motion.div>
 
-        <h3 className="relative mb-2 text-base font-medium text-foreground">
+        <h3 className="text-foreground relative mb-2 text-base font-medium">
           {title}
         </h3>
-        <p className="relative text-sm leading-relaxed text-muted-foreground">
+        <p className="text-muted-foreground relative text-sm leading-relaxed">
           {description}
         </p>
       </motion.div>
@@ -153,6 +190,8 @@ function FeatureCard({
 
 export function FeatureGrid({ features }: { features: FeatureItem[] }) {
   const reduceMotion = useReducedMotion();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const activeIndex = hoveredIndex ?? DEFAULT_ACTIVE_INDEX;
 
   return (
     <div className="relative">
@@ -167,12 +206,17 @@ export function FeatureGrid({ features }: { features: FeatureItem[] }) {
         />
       ) : null}
 
-      <div className="grid grid-cols-1 border-l border-t border-border md:grid-cols-2 lg:grid-cols-3">
+      <div
+        className="border-border grid grid-cols-1 border-t border-l md:grid-cols-2 lg:grid-cols-3"
+        onMouseLeave={() => setHoveredIndex(null)}
+      >
         {features.map((feature, index) => (
           <FeatureCard
             key={feature.title}
             feature={feature}
             index={index}
+            isActive={index === activeIndex}
+            onActivate={() => setHoveredIndex(index)}
             reduceMotion={Boolean(reduceMotion)}
           />
         ))}
