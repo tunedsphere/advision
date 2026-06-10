@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, type CSSProperties } from "react";
+import { MotionReveal } from "@/components/smile/motion-reveal";
 import type { LucideIcon } from "lucide-react";
 import {
   Disc3,
@@ -265,7 +266,7 @@ function AppearanceModePicker({
   ];
 
   return (
-    <div className="inline-flex rounded-lg border border-border p-0.5">
+    <div className="border-border inline-flex rounded-lg border p-0.5">
       {options.map((opt) => (
         <button
           key={opt.id}
@@ -293,7 +294,7 @@ function SidebarSectionLabel({
 }) {
   return (
     <p
-      className="px-2 pt-2 pb-0.5 text-[8px] font-semibold uppercase tracking-wide"
+      className="px-2 pt-2 pb-0.5 text-[8px] font-semibold tracking-wide uppercase"
       style={{ color: tokens.muted }}
     >
       {children}
@@ -530,14 +531,14 @@ export function SmilePersonalization() {
   );
 
   return (
-    <section id="personalization" className="border-t border-border">
-      <div className="max-w-6xl mx-auto border-x border-border px-6">
+    <section id="personalization" className="border-border border-t">
+      <div className="border-border mx-auto max-w-6xl border-x px-6">
         <div className="grid gap-12 py-20 lg:grid-cols-2 lg:gap-8 lg:py-24">
-          <div>
-            <p className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
+          <MotionReveal className="lg:pr-4" y={20}>
+            <p className="text-muted-foreground mb-3 text-xs tracking-widest uppercase">
               Appearance
             </p>
-            <h2 className="mb-4 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            <h2 className="text-foreground mb-4 text-3xl font-semibold tracking-tight md:text-4xl">
               Make it{" "}
               <span
                 className="bg-clip-text text-transparent transition-[background-image] duration-300"
@@ -546,7 +547,7 @@ export function SmilePersonalization() {
                 yours
               </span>
             </h2>
-            <p className="mb-8 max-w-md leading-relaxed text-muted-foreground">
+            <p className="text-muted-foreground mb-8 hidden max-w-md leading-relaxed sm:block">
               Eight OKLCH palettes tint Smile&apos;s chrome — backgrounds,
               surfaces, accents, and borders. Fine-tune contrast and switch
               light or dark under{" "}
@@ -555,32 +556,32 @@ export function SmilePersonalization() {
 
             <div className="space-y-7">
               <div>
-                <label className="mb-3 block text-sm text-muted-foreground">
+                <label className="text-muted-foreground mb-3 block text-sm">
                   Color theme
                 </label>
                 <ThemePresetPicker activeId={presetId} onSelect={setPresetId} />
-                <p className="mt-2 text-xs text-muted-foreground">
+                <p className="text-muted-foreground mt-2 text-xs">
                   {activePreset.label}
                   {activePreset.neutral ? " — achromatic chrome" : ""}
                 </p>
               </div>
 
               <div>
-                <label className="mb-3 block text-sm text-muted-foreground">
+                <label className="text-muted-foreground mb-3 block text-sm">
                   Light &amp; dark
                 </label>
                 <AppearanceModePicker mode={scheme} onChange={setScheme} />
               </div>
 
-              <div className="space-y-3 border-t border-border pt-6">
-                <p className="text-sm text-muted-foreground">Fine-tune</p>
+              <div className="border-border hidden space-y-3 border-t pt-6 sm:block">
+                <p className="text-muted-foreground text-sm">Fine-tune</p>
                 <div className="space-y-2 opacity-60">
                   {["Contrast", "Accent", "Background tint"].map((label) => (
                     <div key={label} className="flex items-center gap-3">
-                      <span className="w-28 shrink-0 text-xs text-muted-foreground">
+                      <span className="text-muted-foreground w-28 shrink-0 text-xs">
                         {label}
                       </span>
-                      <div className="h-1.5 flex-1 rounded-full bg-secondary">
+                      <div className="bg-secondary h-1.5 flex-1 rounded-full">
                         <div
                           className="h-full w-1/2 rounded-full"
                           style={{ background: tokens.accent }}
@@ -589,16 +590,16 @@ export function SmilePersonalization() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[11px] text-muted-foreground/70">
+                <p className="text-muted-foreground/70 text-[11px]">
                   Sliders match the app — preview uses default tuning.
                 </p>
               </div>
             </div>
-          </div>
+          </MotionReveal>
 
-          <div className="lg:pt-6">
+          <MotionReveal className="lg:pt-6" delay={0.1} y={24}>
             <SmileAppPreview tokens={tokens} />
-          </div>
+          </MotionReveal>
         </div>
       </div>
     </section>

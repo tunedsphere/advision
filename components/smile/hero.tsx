@@ -8,7 +8,7 @@ export function SmileHero() {
   const release = getSmileRelease();
   const fileName = release.installerFileName(release.version);
   return (
-    <section className="relative overflow-x-hidden pt-32 sm:pb-16 pb-8">
+    <section className="relative overflow-x-hidden px-6 pt-32 pb-8 sm:pb-16">
       <HeroWaveBackground />
 
       <div className="relative z-10 max-w-6xl mx-auto text-center sm:pb-16 pb-8 md:pb-32">
@@ -60,7 +60,7 @@ export function SmileHero() {
           Windows not available yet
         </p>
       </div>
-      <div className="relative z-10 mx-auto mt-16 max-w-6xl border-t border-border md:pt-16 sm:pt-8 pt-4">
+      <div className="relative z-10 mx-auto mt-16 min-w-0 max-w-6xl border-t border-border pt-4 sm:pt-8 md:pt-16">
         <HeroScreenshotShowcase />
       </div>
     </section>

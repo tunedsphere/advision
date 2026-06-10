@@ -1,3 +1,7 @@
+"use client";
+
+import { FeatureGrid } from "@/components/smile/feature-grid";
+import { MotionReveal } from "@/components/smile/motion-reveal";
 import { SmileWidgetShowcase } from "@/components/smile/widget-showcase";
 import {
   PictureInPicture2,
@@ -66,33 +70,19 @@ const features = [
 export function SmileFeatures() {
   return (
     <section id="features" className="border-t border-border">
-      <div className="max-w-6xl mx-auto px-6 border-x border-border">
-        <div className="py-16 border-b border-border">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
+      <div className="mx-auto max-w-6xl border-x border-border px-6">
+        <MotionReveal className="border-b border-border py-16">
+          <p className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
             Features
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground tracking-tight">
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Everything you need
           </h2>
-        </div>
+        </MotionReveal>
 
         <SmileWidgetShowcase />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-border">
-          {features.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="p-8 border-r border-b border-border">
-              <div className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center mb-5">
-                <Icon className="w-4 h-4 text-rose-400" strokeWidth={1.75} />
-              </div>
-              <h3 className="text-base font-medium text-foreground mb-2">
-                {title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {description}
-              </p>
-            </div>
-          ))}
-        </div>
+        <FeatureGrid features={features} />
       </div>
     </section>
   );

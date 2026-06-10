@@ -263,8 +263,15 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: min(7rem, 18%);
+  width: 0;
   z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .smile-wave-hero-edge-fade-left,
+  .smile-wave-hero-edge-fade-right {
+    width: min(4rem, 18%);
+  }
 }
 
 .smile-wave-hero-edge-fade-left {

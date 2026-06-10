@@ -86,11 +86,8 @@ export function HeroScreenshotShowcase() {
   const activeIndex = reducedMotion ? 0 : activeFrameIndex(progress);
 
   return (
-    <div
-      ref={showcaseRef}
-      className="-mx-6 border-x-0 sm:pb-6 pb-4 md:mx-0 md:border-x md:border-border md:px-6 px-1.5"
-    >
-      <div className="relative aspect-[1444/619] w-full overflow-hidden rounded-none border-y border-border shadow-none md:rounded-2xl md:border md:shadow-2xl">
+    <div ref={showcaseRef} className="w-full min-w-0 pb-4 sm:pb-6">
+      <div className="relative aspect-[1444/619] w-full max-w-full overflow-hidden rounded-xl border border-border bg-card/40 shadow-lg md:rounded-2xl md:shadow-2xl">
         {FRAMES.map((frame, index) => {
           const isActive = index === activeIndex;
 
@@ -104,7 +101,7 @@ export function HeroScreenshotShowcase() {
               sizes="(max-width: 1152px) 100vw, 1152px"
               priority={index === 0}
               aria-hidden={!isActive}
-              className={`absolute inset-0 h-full w-full object-cover object-top ${
+              className={`absolute inset-0 h-full w-full object-contain object-top md:object-cover ${
                 reducedMotion
                   ? ""
                   : "transition-opacity duration-500 ease-in-out"

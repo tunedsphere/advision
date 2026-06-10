@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { MotionReveal } from "@/components/smile/motion-reveal";
 import {
   MousePointer2,
   Pause,
@@ -406,7 +407,7 @@ function WidgetShowcaseDemo() {
 export function SmileWidgetShowcase() {
   return (
     <div className="border-b border-border">
-      <div className="px-6 py-14 text-center md:py-16">
+      <MotionReveal className="px-6 py-14 text-center md:py-16">
         <p className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
           Screen Widget
         </p>
@@ -420,7 +421,7 @@ export function SmileWidgetShowcase() {
           A floating edge widget — play, pause, and skip without leaving what
           you&apos;re doing.
         </p>
-      </div>
+      </MotionReveal>
 
       <WidgetShowcaseDemo />
 
