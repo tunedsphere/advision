@@ -88,7 +88,7 @@ export function HeroScreenshotShowcase() {
   return (
     <div
       ref={showcaseRef}
-      className="-mx-6 border-x-0 px-0 pb-6 md:mx-0 md:border-x md:border-border md:px-6"
+      className="-mx-6 border-x-0 sm:pb-6 pb-4 md:mx-0 md:border-x md:border-border md:px-6 px-1.5"
     >
       <div className="relative aspect-[1444/619] w-full overflow-hidden rounded-none border-y border-border shadow-none md:rounded-2xl md:border md:shadow-2xl">
         {FRAMES.map((frame, index) => {

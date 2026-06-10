@@ -25,6 +25,8 @@ const EXPANDED_WIDTH = 410;
 const EXPANDED_HEIGHT = 42;
 const BLINK_CYCLES = 3;
 const BLINK_FADE_MS = 180;
+const WIDGET_MOBILE_SCALE =
+  "origin-center scale-[0.62] sm:scale-[0.78] md:scale-100";
 
 type AnimationPhase = "idle" | "blink" | "cursor" | "expand" | "done";
 
@@ -378,13 +380,19 @@ function WidgetShowcaseDemo() {
   return (
     <div
       ref={demoRef}
-      className="relative mx-auto h-32 w-full max-w-5xl overflow-hidden md:h-36"
+      className="relative mx-auto h-28 w-full max-w-5xl overflow-hidden sm:h-32 md:h-36"
     >
       <ContinuousWaveform opacity={waveformOpacity} />
 
-      <WidgetDemoCursor visible={cursorVisible} atTarget={cursorAtTarget} />
+      <div
+        className={`pointer-events-none absolute inset-0 z-30 ${WIDGET_MOBILE_SCALE}`}
+      >
+        <WidgetDemoCursor visible={cursorVisible} atTarget={cursorAtTarget} />
+      </div>
 
-      <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+      <div
+        className={`absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 ${WIDGET_MOBILE_SCALE}`}
+      >
         <AnimatedWidgetCluster
           expansionProgress={expansionProgress}
           blinkOpacity={blinkOpacity}

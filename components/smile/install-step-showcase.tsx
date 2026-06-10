@@ -178,7 +178,7 @@ export function InstallPreviewPanel({ version }: { version: string }) {
   return (
     <section className="relative flex items-start justify-center overflow-visible bg-transparent px-6 py-12 md:px-10 lg:min-h-screen lg:overflow-visible lg:px-8 lg:pt-14 lg:pb-0 xl:px-10">
       <div className="relative mx-auto flex w-full max-w-none flex-col items-center justify-center overflow-visible lg:items-start">
-        <p className="mb-8 w-full text-center text-xs uppercase tracking-widest text-muted-foreground lg:text-left">
+        <p className="mb-8 w-full text-center text-base font-medium uppercase tracking-[0.18em] text-muted-foreground md:text-lg lg:text-left">
           What to expect on your Mac
         </p>
         <InstallPreviewStage

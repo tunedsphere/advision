@@ -35,7 +35,7 @@ function BrowserPageSkeleton({ isBleed }: { isBleed: boolean }) {
         />
       </div>
 
-      <div className={`mx-auto w-full ${isBleed ? "max-w-[88%]" : "max-w-xs"}`}>
+      <div className={`mx-auto w-full ${isBleed ? "max-w-md" : "max-w-48"}`}>
         <div
           className={`flex rounded-xl border border-white/6 bg-white/4 ${
             isBleed ? "flex-row items-start gap-5 p-5" : "flex-col gap-2 p-3"
@@ -116,10 +116,10 @@ function BrowserDownloadPreview({
       }`}
     >
       <div
-        className={`relative flex min-h-0 flex-col overflow-visible border border-white/12 bg-[#242426] shadow-[0_32px_80px_rgba(0,0,0,0.45)] ${
+        className={`relative flex min-h-0 flex-col overflow-hidden border border-white/12 bg-[#242426] shadow-[0_32px_80px_rgba(0,0,0,0.45)] ${
           isBleed
-            ? "h-[min(90vh,940px)] w-full rounded-tl-3xl border-b-0 border-r-0"
-            : "h-full rounded-2xl"
+            ? "h-[min(90vh,940px)] w-full rounded-t-md border-b-0 border-r-0"
+            : "h-full rounded-md"
         }`}
       >
         <div

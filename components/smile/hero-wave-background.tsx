@@ -47,7 +47,7 @@ function WaveBars({
         return (
           <span
             key={`${indexOffset}-${i}`}
-            className={`w-[3px] shrink-0 ${
+            className={`w-[3px] xl:w-[4px] shrink-0 ${
               tall ? "smile-wave-bar-breathe-tall" : "smile-wave-bar-breathe"
             }`}
             style={{
@@ -97,7 +97,7 @@ export function HeroWaveBackground() {
 
   return (
     <div
-      className="pointer-events-none absolute inset-x-0 top-8 z-0 h-[min(680px,72vh)] px-6"
+      className="pointer-events-none absolute inset-x-0 top-8 z-0 h-[min(680px,72vh)]"
       aria-hidden
     >
       <div
