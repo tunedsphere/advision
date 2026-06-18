@@ -597,7 +597,7 @@ export function SmilePersonalization() {
             </div>
           </MotionReveal>
 
-          <MotionReveal className="lg:pt-6" delay={0.1} y={24}>
+          <MotionReveal className="lg:pt-6" delay={0.4} y={24}>
             <SmileAppPreview tokens={tokens} />
           </MotionReveal>
         </div>

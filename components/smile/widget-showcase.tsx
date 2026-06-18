@@ -407,7 +407,7 @@ function WidgetShowcaseDemo() {
 export function SmileWidgetShowcase() {
   return (
     <div className="border-b border-border">
-      <MotionReveal className="px-6 py-14 text-center md:py-16">
+      <MotionReveal className="px-6 py-14 text-center md:py-16" delay={0.25}>
         <p className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">
           Screen Widget
         </p>

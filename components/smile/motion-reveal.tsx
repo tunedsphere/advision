@@ -5,6 +5,12 @@ import type { ReactNode } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
+const revealViewport = {
+  once: true,
+  amount: 0.4,
+  margin: "0px 0px -8% 0px",
+} as const;
+
 type MotionRevealProps = {
   children: ReactNode;
   className?: string;
@@ -16,7 +22,7 @@ export function MotionReveal({
   children,
   className,
   delay = 0,
-  y = 16,
+  y = 20,
 }: MotionRevealProps) {
   const reduceMotion = useReducedMotion();
 
@@ -29,8 +35,8 @@ export function MotionReveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.45, ease, delay }}
+      viewport={revealViewport}
+      transition={{ duration: 0.9, ease, delay }}
     >
       {children}
     </motion.div>
@@ -46,7 +52,7 @@ type MotionStaggerProps = {
 export function MotionStagger({
   children,
   className,
-  stagger = 0.06,
+  stagger = 0.12,
 }: MotionStaggerProps) {
   const reduceMotion = useReducedMotion();
 
@@ -59,7 +65,7 @@ export function MotionStagger({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.12 }}
+      viewport={revealViewport}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: stagger } },
@@ -86,11 +92,11 @@ export function MotionStaggerItem({ children, className }: MotionStaggerItemProp
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 14 },
+        hidden: { opacity: 0, y: 18 },
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.4, ease },
+          transition: { duration: 0.85, ease },
         },
       }}
       whileHover={{ y: -2, transition: { duration: 0.2 } }}

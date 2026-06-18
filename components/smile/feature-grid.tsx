@@ -19,11 +19,25 @@ export type FeatureItem = {
   description: string;
 };
 
-function waveDelay(index: number) {
-  const col = index % 3;
-  const row = Math.floor(index / 3);
-  return row * 0.09 + col * 0.07;
-}
+const cardRevealVariants = {
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.8, ease },
+  },
+} as const;
+
+const gridRevealVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.15,
+      staggerChildren: 0.11,
+    },
+  },
+} as const;
 
 const GLOW_ANCHORS = [
   "10% 12%",
@@ -126,22 +140,7 @@ function FeatureCard({
       className="border-border relative border-r border-b p-2"
       onMouseEnter={onActivate}
       style={canTilt && !reduceMotion ? { perspective: 900 } : undefined}
-      initial={
-        reduceMotion
-          ? false
-          : { opacity: 0, y: 22, scale: 0.97, filter: "blur(6px)" }
-      }
-      whileInView={
-        reduceMotion
-          ? undefined
-          : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
-      }
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{
-        duration: 0.55,
-        ease,
-        delay: reduceMotion ? 0 : waveDelay(index),
-      }}
+      variants={reduceMotion ? undefined : cardRevealVariants}
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
     >
@@ -206,9 +205,13 @@ export function FeatureGrid({ features }: { features: FeatureItem[] }) {
         />
       ) : null}
 
-      <div
+      <motion.div
         className="border-border grid grid-cols-1 border-t border-l md:grid-cols-2 lg:grid-cols-3"
         onMouseLeave={() => setHoveredIndex(null)}
+        initial={reduceMotion ? false : "hidden"}
+        whileInView={reduceMotion ? undefined : "visible"}
+        viewport={{ once: true, amount: 0.1, margin: "0px 0px -5% 0px" }}
+        variants={reduceMotion ? undefined : gridRevealVariants}
       >
         {features.map((feature, index) => (
           <FeatureCard
@@ -220,7 +223,7 @@ export function FeatureGrid({ features }: { features: FeatureItem[] }) {
             reduceMotion={Boolean(reduceMotion)}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
