@@ -1,8 +1,8 @@
-import { Header } from "@/components/advision/header";
-import { Hero } from "@/components/advision/hero";
-import { Products } from "@/components/advision/products";
-import { About } from "@/components/advision/about";
-import { Footer } from "@/components/advision/footer";
+import { Header } from "@/components/avison/header";
+import { Hero } from "@/components/avison/hero";
+import { Products } from "@/components/avison/products";
+import { About } from "@/components/avison/about";
+import { Footer } from "@/components/avison/footer";
 
 export default function Home() {
   return (

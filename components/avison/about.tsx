@@ -11,7 +11,7 @@ export function About() {
               designed for you
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              At Advision, we believe software should be a joy to use. Every pixel, 
+              At Avison, we believe software should be a joy to use. Every pixel, 
               every interaction, every feature is crafted with intention.
             </p>
             <p className="text-muted-foreground leading-relaxed">

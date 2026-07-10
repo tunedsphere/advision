@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Advision - Software that Inspires Joy',
+  title: 'Avison - Software that Inspires Joy',
   description: 'Crafting beautiful, intuitive software that transforms how you experience music and video.',
   generator: 'v0.app',
   icons: {

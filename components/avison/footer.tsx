@@ -7,7 +7,7 @@ export function Footer() {
         <div className="py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="col-span-2 md:col-span-1">
             <span className="text-sm font-semibold text-foreground">
-              Advision
+              Avison
             </span>
             <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
               Crafting beautiful software.
@@ -87,7 +87,7 @@ export function Footer() {
 
         <div className="py-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            {new Date().getFullYear()} Advision. All rights reserved.
+            {new Date().getFullYear()} Avison. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <a

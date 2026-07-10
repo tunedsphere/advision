@@ -139,7 +139,7 @@ function BrowserDownloadPreview({
             </div>
             <div className="flex h-8 min-w-0 flex-1 items-center justify-center rounded-lg bg-black/30 px-3">
               <span className="truncate text-[11px] text-white/50">
-                advision.com/smile/download
+                avison-soft.com/smile/download
               </span>
             </div>
           </div>

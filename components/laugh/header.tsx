@@ -21,7 +21,7 @@ export function LaughHeader() {
             href="/"
             className="hidden md:block text-sm text-foreground hover:text-muted-foreground transition-colors"
           >
-            Advision
+            Avison
           </Link>
         </div>
 
@@ -96,7 +96,7 @@ export function LaughHeader() {
               href="/"
               className="text-sm text-foreground hover:text-muted-foreground transition-colors"
             >
-              Advision
+              Avison
             </Link>
             <Button size="sm" variant="outline" className="w-fit">
               Download

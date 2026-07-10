@@ -3,7 +3,7 @@ export function Hero() {
     <section className="pt-40 pb-24 px-6">
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center text-center">
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
-          Advision
+          Avison
         </p>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground tracking-tight leading-[1.08] mb-6">
           Software that

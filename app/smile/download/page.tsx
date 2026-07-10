@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SmileDownloadPageContent } from "@/components/smile/download-page-content";
 
 export const metadata: Metadata = {
-  title: "Download Smile | Advision",
+  title: "Download Smile | Avison",
   description:
     "Download Smile for macOS. Install the Apple Silicon build and start listening in minutes.",
 };

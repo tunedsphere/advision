@@ -14,7 +14,7 @@ export function LaughFooter() {
               href="/"
               className="text-xs text-muted-foreground hover:text-foreground transition-colors"
             >
-              An Advision Product
+              An Avison Product
             </Link>
           </div>
 

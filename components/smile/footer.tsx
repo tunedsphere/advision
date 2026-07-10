@@ -15,7 +15,7 @@ export function SmileFooter() {
               href="/"
               className="text-muted-foreground hover:text-foreground text-xs transition-colors"
             >
-              An Advision Product
+              An Avison Product
             </Link>
           </div>
 

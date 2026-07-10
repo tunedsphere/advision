@@ -10,7 +10,7 @@ export default function SmileEulaPage() {
   return (
     <LegalDocument title="End User License Agreement" updated="July 10, 2026">
       <p>
-        This agreement is between you and Advision (&quot;we&quot;, &quot;us&quot;)
+        This agreement is between you and Avison (&quot;we&quot;, &quot;us&quot;)
         for Smile, a macOS application (&quot;the Software&quot;). By
         downloading or using Smile, you agree to these terms.
       </p>
@@ -51,7 +51,7 @@ export default function SmileEulaPage() {
 
       <h2>Limitation of liability</h2>
       <p>
-        To the maximum extent permitted by law, Advision is not liable for
+        To the maximum extent permitted by law, Avison is not liable for
         indirect, incidental, or consequential damages, or for loss of data,
         profits, or business arising from use of the Software. Our total
         liability is limited to the amount you paid for Smile (if any).

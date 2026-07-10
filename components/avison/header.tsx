@@ -12,14 +12,14 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
           <Image
-            src="/logo-advision.svg"
-            alt="Advision logo"
+            src="/logo-avison.svg"
+            alt="Avison logo"
             width={30}
             height={30}
             priority
           />
-          <span className="text-lg font-semibold text-foreground tracking-tight capitalize">
-            ADVISION
+          <span className="text-lg font-semibold text-foreground tracking-tight">
+            Avison
           </span>
         </Link>
 

@@ -7,7 +7,7 @@ import { SmileCTA } from "@/components/smile/cta";
 import { SmileFooter } from "@/components/smile/footer";
 
 export const metadata: Metadata = {
-  title: "Smile - Your Music, Your Way | Advision",
+  title: "Smile - Your Music, Your Way | Avison",
   description:
     "A personalized music experience with powerful tag management and metadata editing. Clean, simple, and designed for you.",
 };

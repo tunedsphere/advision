@@ -1,6 +1,6 @@
-# Advision Web
+# Avison Web
 
-Marketing site for Advision desktop apps (Smile, Laugh). Product pages sell features; download pages handle distribution.
+Marketing site for Avison desktop apps (Smile, Laugh). Product pages sell features; download pages handle distribution.
 
 ## Language
 
@@ -13,7 +13,7 @@ A marketing route (e.g. `/smile`) that explains what an app does — features, p
 _Avoid_: Product page, landing page (when you mean the marketing route specifically).
 
 **Smile**:
-Advision’s macOS music app — local library, metadata tools, screen widget, parametric EQ. Ships as Apple Silicon only; macOS 14+.
+Avison’s macOS music app — local library, metadata tools, screen widget, parametric EQ. Ships as Apple Silicon only; macOS 14+.
 _Avoid_: Music app, Smile app (in user-facing copy when “Smile” alone is clear).
 
 **CTA section**:

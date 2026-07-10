@@ -36,7 +36,7 @@ export default function SmilePrivacyPage() {
         Smile may use the network for optional features you trigger (for example,
         fetching album artwork or metadata from public sources). Those requests
         go from your Mac directly to third-party services — not through an
-        Advision listening server.
+        Avison listening server.
       </p>
 
       <h2>Updates</h2>

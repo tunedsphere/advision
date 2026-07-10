@@ -7,7 +7,7 @@ import { LaughCTA } from "@/components/laugh/cta";
 import { LaughFooter } from "@/components/laugh/footer";
 
 export const metadata: Metadata = {
-  title: "laugh - Video, Reimagined | Advision",
+  title: "laugh - Video, Reimagined | Avison",
   description:
     "A cozy video experience that brings your content together. Smart organization, beautiful playback, and a warm interface that feels like home.",
 };

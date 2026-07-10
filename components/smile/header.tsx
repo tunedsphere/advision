@@ -69,7 +69,7 @@ export function SmileHeader({ downloadUrl, fileName }: SmileHeaderProps) {
             href="/"
             className="hidden text-sm text-foreground transition-colors hover:text-muted-foreground md:block"
           >
-            Advision
+            Avison
           </Link>
         </div>
 
@@ -168,7 +168,7 @@ export function SmileHeader({ downloadUrl, fileName }: SmileHeaderProps) {
                 onClick={closeMobileMenu}
                 tabIndex={mobileMenuOpen ? 0 : -1}
               >
-                Advision
+                Avison
               </Link>
               <SmileDownloadButton
                 downloadUrl={downloadUrl}
