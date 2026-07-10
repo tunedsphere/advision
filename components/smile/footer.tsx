@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SmileFooterLinks } from "@/components/smile/footer-links";
+import { SMILE_COMPANY_NAME } from "@/lib/smile/site";
 
 export function SmileFooter() {
   return (
@@ -15,7 +16,7 @@ export function SmileFooter() {
               href="/"
               className="text-muted-foreground hover:text-foreground text-xs transition-colors"
             >
-              An Avison Product
+              {SMILE_COMPANY_NAME}
             </Link>
           </div>
 

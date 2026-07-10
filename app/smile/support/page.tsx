@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SmileFooter } from "@/components/smile/footer";
 import { SmileHeaderShell } from "@/components/smile/header-shell";
-import { SMILE_SUPPORT_EMAIL } from "@/lib/smile/site";
+import { SMILE_COMPANY_NAME, SMILE_SUPPORT_EMAIL } from "@/lib/smile/site";
 
 export const metadata: Metadata = {
   title: "Support | Smile",
@@ -27,7 +27,7 @@ export default function SmileSupportPage() {
         </h1>
         <p className="text-muted-foreground mb-10 max-w-xl text-sm leading-relaxed md:text-base">
           Need help installing Smile, indexing your library, or reporting a bug?
-          Reach out — we read every message.
+          Reach out to {SMILE_COMPANY_NAME} — we read every message.
         </p>
 
         <div className="border-border bg-card/40 rounded-xl border p-6 md:p-8">

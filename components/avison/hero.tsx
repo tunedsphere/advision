@@ -9,8 +9,9 @@ export function Hero() {
           Software that
           <br />
           <span className="bg-linear-to-r from-rose-400 to-teal-300 bg-clip-text text-transparent">
-            inspires joy
-          </span>
+            inspires
+          </span>{" "}
+          joy
         </h1>
         <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
           Beautiful, intuitive applications that transform how you experience

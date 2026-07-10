@@ -64,7 +64,7 @@ const features = [
   {
     icon: Lock,
     title: "Privacy First",
-    description: "Your music stays on your Mac. No tracking, no telemetry.",
+    description: "Your music stays on your Mac. Local-first by design.",
   },
 ];
 

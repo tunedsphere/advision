@@ -16,7 +16,7 @@ const LOGOS: Record<
     src: "/logo-avison.svg",
     alt: "Avison",
     rounded: false,
-    sparkle: "rgb(200, 169, 92)",
+    sparkle: "rgb(235, 230, 225)",
   },
   smile: {
     src: "/smile/icon.png",

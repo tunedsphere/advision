@@ -186,7 +186,7 @@ export function SmileFeatureSpotlights() {
         id="privacy"
         eyebrow="Privacy First"
         title="Your library stays on your Mac"
-        description="Smile is built for local listening. No accounts, no cloud uploads, no telemetry — just your music, indexed where it already lives."
+        description="Smile is built for local listening. No accounts required, no cloud uploads — just your music, indexed where it already lives."
         visual={<MockVisual variant="privacy" />}
       />
     </div>

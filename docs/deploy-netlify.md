@@ -14,7 +14,7 @@ One-time migration from Vercel. Env vars **do not** copy over — set them in Ne
 
 | Variable | Example | When |
 |----------|---------|------|
-| `SMILE_SUPPORT_EMAIL` | `support@avison-soft.com` | Override default `support@tunedsphere.com` |
+| `SMILE_SUPPORT_EMAIL` | `support@avison-soft.com` | Optional override (this is the site default) |
 | `SMILE_DOWNLOAD_URL` | `https://avison-soft.com/Smile-0.25.0.dmg` | External CDN or stable alias URL |
 | `SMILE_DOWNLOAD_BASE_URL` | `https://cdn.example.com/smile` | Versioned files on a CDN root |
 

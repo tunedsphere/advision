@@ -8,12 +8,12 @@ import type { ProductReleaseConfig, ResolvedProductRelease } from "./types";
  * Download URL resolution (first match wins):
  * 1. SMILE_DOWNLOAD_URL — full URL (stable /latest redirect or direct .dmg)
  * 2. SMILE_DOWNLOAD_BASE_URL + versioned filename — CDN bucket root
- * 3. Same-origin file in public/ (e.g. public/Smile-0.25.0.dmg)
+ * 3. Same-origin file in public/ (e.g. public/Smile-0.25.1.dmg)
  */
 export const SMILE_RELEASE_CONFIG: ProductReleaseConfig = {
   productId: "smile",
   productName: "Smile",
-  version: "0.25.0",
+  version: "0.25.1",
   installerFileName: (version) => `Smile-${version}.dmg`,
   requirements: [
     { label: "macOS", value: "14 Sonoma or later" },

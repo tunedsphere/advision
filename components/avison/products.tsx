@@ -11,8 +11,8 @@ export function Products() {
   const [activeLogo, setActiveLogo] = useState<ActiveLogo>("avison");
 
   return (
-    <section className="bg-product-background relative">
-      <div className="border-product-border border-t" />
+    <section className="bg-background relative">
+      <div className="border-border border-t" />
 
       <div
         className="relative h-[600px] overflow-hidden md:h-[900px]"
@@ -30,7 +30,7 @@ export function Products() {
               y1="0"
               x2="60"
               y2="100"
-              stroke="var(--product-background)"
+              stroke="var(--background)"
               strokeWidth="12"
               vectorEffect="non-scaling-stroke"
             />
@@ -39,7 +39,7 @@ export function Products() {
               y1="0"
               x2="60"
               y2="100"
-              stroke="var(--product-border)"
+              stroke="var(--border)"
               strokeWidth="1.5"
               vectorEffect="non-scaling-stroke"
             />
@@ -70,10 +70,9 @@ export function Products() {
               style={{ display: "block" }}
             />
             <div
-              className={`absolute inset-0 transition-opacity duration-500 ${
+              className={`bg-background/20 absolute inset-0 transition-opacity duration-500 ${
                 activeLogo === "smile" ? "opacity-0" : "opacity-100"
               }`}
-              style={{ background: "hsl(var(--background) / 0.2)" }}
             />
             <div
               className={`bg-background/10 absolute inset-0 transition-opacity duration-500 ${
@@ -112,10 +111,9 @@ export function Products() {
               style={{ display: "block" }}
             />
             <div
-              className={`absolute inset-0 transition-opacity duration-500 ${
+              className={`bg-background/20 absolute inset-0 transition-opacity duration-500 ${
                 activeLogo === "laugh" ? "opacity-0" : "opacity-100"
               }`}
-              style={{ background: "hsl(var(--background) / 0.2)" }}
             />
             <div
               className={`bg-background/10 absolute inset-0 transition-opacity duration-500 ${
@@ -192,22 +190,22 @@ export function Products() {
                 <linearGradient id="dividerFade" x1="0" y1="0" x2="0" y2="1">
                   <stop
                     offset="0%"
-                    stopColor="var(--product-background)"
+                    stopColor="var(--background)"
                     stopOpacity="1"
                   />
                   <stop
                     offset="25%"
-                    stopColor="var(--product-background)"
+                    stopColor="var(--background)"
                     stopOpacity="1"
                   />
                   <stop
                     offset="75%"
-                    stopColor="var(--product-background)"
+                    stopColor="var(--background)"
                     stopOpacity="0"
                   />
                   <stop
                     offset="100%"
-                    stopColor="var(--product-background)"
+                    stopColor="var(--background)"
                     stopOpacity="0"
                   />
                 </linearGradient>
@@ -236,7 +234,7 @@ export function Products() {
               y1="0"
               x2="40"
               y2="100"
-              stroke="var(--product-border)"
+              stroke="var(--border)"
               strokeWidth="1.5"
               vectorEffect="non-scaling-stroke"
             />
@@ -244,7 +242,7 @@ export function Products() {
         </div>
       </div>
 
-      <div className="border-product-border border-t" />
+      <div className="border-border border-t" />
     </section>
   );
 }

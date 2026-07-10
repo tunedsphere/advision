@@ -269,7 +269,7 @@ export function PrivacyPreviewMock() {
         <div>
           <p className="text-sm font-medium">Stays on your Mac</p>
           <p className="text-muted-foreground mt-1 max-w-xs text-[11px] leading-relaxed">
-            Local folders only — no accounts, no cloud uploads, no telemetry.
+            Local folders only — no accounts required, no cloud uploads.
           </p>
         </div>
         <div className="border-border text-muted-foreground flex items-center gap-2 rounded-full border px-3 py-1 text-[10px]">

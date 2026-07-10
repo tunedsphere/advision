@@ -11,11 +11,11 @@
         <g transform="matrix(1.77733,0,0,1.77733,1.04757e-14,17.7733)">
             <path d="M110,50L0,-10L0,-130L110,-70L110,50Z" style="fill:rgb(58,58,58);fill-rule:nonzero;"/>
         </g>
-        <g transform="matrix(1.77733,0,0,1.77733,1.11454e-13,17.7733)">
-            <path d="M0,110L-110,50L-110,-70L0,-130L110,-70L110,50L0,110Z" style="fill:none;fill-rule:nonzero;stroke:rgb(200,169,92);stroke-width:11.25px;"/>
+        <g transform="matrix(1.79883,0,0,1.79883,1.12803e-13,17.9883)">
+            <path d="M0,110L-110,50L-110,-70L0,-130L110,-70L110,50L0,110Z" style="fill:none;fill-rule:nonzero;stroke:rgb(235,230,225);stroke-width:6.67px;"/>
         </g>
         <g transform="matrix(1.77733,0,0,1.77733,1.11454e-13,17.7733)">
-            <path d="M0,-130L0,-10" style="fill:none;fill-rule:nonzero;stroke:rgb(200,169,91);stroke-width:11.25px;stroke-linejoin:miter;"/>
+            <path d="M0,-130L0,-10" style="fill:none;fill-rule:nonzero;stroke:rgb(235,230,225);stroke-width:6.75px;stroke-linejoin:miter;"/>
         </g>
     </g>
 </svg>
