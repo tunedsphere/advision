@@ -1,19 +1,23 @@
 import type { ProductReleaseConfig, ResolvedProductRelease } from "./types";
+import { readSmileReleaseVersion } from "./read-release-version";
+
+const SMILE_VERSION = readSmileReleaseVersion();
 
 /**
  * Smile release metadata for the marketing site.
  *
- * Bump `version` when shipping a new build (mirror smile-app Packaging/RELEASE_VERSION).
+ * Version comes from Packaging/RELEASE_VERSION (same file as smile-app).
+ * Run `pnpm release:smile X.Y.Z` to bump; `pnpm verify:smile-release` checks the DMG exists.
  *
  * Download URL resolution (first match wins):
- * 1. SMILE_DOWNLOAD_URL — full URL (stable /latest redirect or direct .dmg)
+ * 1. SMILE_DOWNLOAD_URL — full URL (only for external hosting; leave unset for public/)
  * 2. SMILE_DOWNLOAD_BASE_URL + versioned filename — CDN bucket root
- * 3. Same-origin file in public/ (e.g. public/Smile-0.25.1.dmg)
+ * 3. Same-origin file in public/ → /Smile-{version}.dmg
  */
 export const SMILE_RELEASE_CONFIG: ProductReleaseConfig = {
   productId: "smile",
   productName: "Smile",
-  version: "0.25.1",
+  version: SMILE_VERSION,
   installerFileName: (version) => `Smile-${version}.dmg`,
   requirements: [
     { label: "macOS", value: "14 Sonoma or later" },

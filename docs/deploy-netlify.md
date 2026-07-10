@@ -18,15 +18,22 @@ One-time migration from Vercel. Env vars **do not** copy over — set them in Ne
 | `SMILE_DOWNLOAD_URL` | *(leave unset)* | **Do not set** when DMG is in `public/` — it pins the URL and breaks version bumps |
 | `SMILE_DOWNLOAD_BASE_URL` | `https://cdn.example.com/smile` | External CDN only; appends versioned filename |
 
-With no download env vars, the site serves `public/Smile-{version}.dmg` at `/Smile-{version}.dmg` (from `lib/releases/smile.ts`).
+With no download env vars, the site serves `public/Smile-{version}.dmg` from **`Packaging/RELEASE_VERSION`**.
+
+## Ship a new Smile build
+
+1. Bump version (same file as smile-app): `pnpm release:smile 0.25.2`
+2. Copy `Smile-0.25.2.dmg` → `public/Smile-0.25.2.dmg`
+3. `pnpm verify:smile-release` (also runs automatically before `pnpm build`)
+4. commit-to-v, push — **do not** set `SMILE_DOWNLOAD_URL` on Netlify
+
+Replace same version (fixed DMG, no bump): overwrite `public/Smile-{version}.dmg` only, commit, push.
 
 ## 3. DMG hosting (current)
 
 ```
-public/Smile-0.25.1.dmg  →  https://avison-soft.com/Smile-0.25.1.dmg
+Packaging/RELEASE_VERSION  →  public/Smile-{version}.dmg  →  https://avison-soft.com/Smile-{version}.dmg
 ```
-
-`~11 MB` in `public/` is fine at early traffic. Bump `version` in `lib/releases/smile.ts` and replace the file when you ship a new build. **Remove `SMILE_DOWNLOAD_URL` from Netlify** if you added it during setup — a stale value (e.g. `Smile-0.25.0.dmg`) overrides the automatic URL.
 
 ## 4. DNS
 

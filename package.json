@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "node scripts/verify-smile-release.mjs",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "verify:smile-release": "node scripts/verify-smile-release.mjs",
+    "release:smile": "node scripts/bump-smile-release.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
