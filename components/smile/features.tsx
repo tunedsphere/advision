@@ -1,6 +1,7 @@
 "use client";
 
 import { FeatureGrid } from "@/components/smile/feature-grid";
+import { SmileFeatureSpotlights } from "@/components/smile/feature-spotlights";
 import { MotionReveal } from "@/components/smile/motion-reveal";
 import { SmileWidgetShowcase } from "@/components/smile/widget-showcase";
 import {
@@ -83,6 +84,8 @@ export function SmileFeatures() {
         <SmileWidgetShowcase />
 
         <FeatureGrid features={features} />
+
+        <SmileFeatureSpotlights />
       </div>
     </section>
   );

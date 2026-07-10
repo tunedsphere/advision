@@ -13,8 +13,15 @@ export function SmileCTAContent({
   fileName,
 }: SmileCTAContentProps) {
   return (
-    <section id="download" className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+    <section
+      id="download"
+      className="border-border bg-product-background relative overflow-hidden border-t"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_50%_100%,oklch(0.72_0.19_15/0.08),transparent_68%)]"
+        aria-hidden
+      />
+      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36 lg:py-44">
         <MotionReveal className="text-center">
           <h2 className="mb-4 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
             Ready to{" "}

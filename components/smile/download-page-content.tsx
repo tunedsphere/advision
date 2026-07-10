@@ -10,6 +10,7 @@ import {
   InstallStepShowcase,
   InstallTryAgain,
 } from "@/components/smile/install-step-showcase";
+import { SmileFooterLinks } from "@/components/smile/footer-links";
 
 function AppleIcon() {
   return (
@@ -94,6 +95,11 @@ export function SmileDownloadPageContent() {
                   {release.unavailableMessage}
                 </p>
               )}
+
+              <SmileFooterLinks
+                className="mt-6 flex flex-wrap gap-x-5 gap-y-2"
+                linkClassName="text-xs text-white/40 transition-colors hover:text-white/70"
+              />
             </div>
           </aside>
 
