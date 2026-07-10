@@ -69,7 +69,7 @@ export function InstallStepShowcase({
     setActiveStep(0);
     setSequenceKey((key) => key + 1);
     if (downloadUrl) {
-      triggerFileDownload(downloadUrl, fileName);
+      triggerFileDownload(downloadUrl);
     }
   }, [downloadUrl, fileName]);
 

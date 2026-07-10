@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { getSmileRelease } from "@/lib/releases";
-import { DownloadAutoStart } from "@/components/smile/download-auto-start";
 import { SmileDownloadButton } from "@/components/smile/download-button";
 import {
   InstallPreviewPanel,
@@ -30,15 +28,7 @@ export function SmileDownloadPageContent() {
   const fileName = release.installerFileName(release.version);
 
   return (
-    <>
-      <Suspense fallback={null}>
-        <DownloadAutoStart
-          downloadUrl={release.downloadUrl}
-          fileName={fileName}
-        />
-      </Suspense>
-
-      <InstallStepShowcase
+    <InstallStepShowcase
         steps={release.installSteps}
         version={release.version}
         downloadUrl={release.downloadUrl}
@@ -85,6 +75,7 @@ export function SmileDownloadPageContent() {
                 <SmileDownloadButton
                   downloadUrl={release.downloadUrl}
                   fileName={fileName}
+                  navigateAfterDownload={false}
                   className="w-full rounded-full bg-white text-[#141416] hover:bg-white/90 gap-2 sm:w-auto"
                 >
                   <AppleIcon />
@@ -108,6 +99,5 @@ export function SmileDownloadPageContent() {
           </div>
         </div>
       </InstallStepShowcase>
-    </>
   );
 }
