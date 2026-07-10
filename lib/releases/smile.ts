@@ -8,6 +8,7 @@ import type { ProductReleaseConfig, ResolvedProductRelease } from "./types";
  * Download URL resolution (first match wins):
  * 1. SMILE_DOWNLOAD_URL — full URL (stable /latest redirect or direct .dmg)
  * 2. SMILE_DOWNLOAD_BASE_URL + versioned filename — CDN bucket root
+ * 3. Same-origin file in public/ (e.g. public/Smile-0.25.0.dmg)
  */
 export const SMILE_RELEASE_CONFIG: ProductReleaseConfig = {
   productId: "smile",
@@ -57,7 +58,7 @@ export function resolveSmileDownloadUrl(
     return `${base.replace(/\/$/, "")}/${SMILE_RELEASE_CONFIG.installerFileName(version)}`;
   }
 
-  return null;
+  return `/${SMILE_RELEASE_CONFIG.installerFileName(version)}`;
 }
 
 /** Full release record for server components and metadata. */
