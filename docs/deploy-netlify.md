@@ -15,18 +15,18 @@ One-time migration from Vercel. Env vars **do not** copy over — set them in Ne
 | Variable | Example | When |
 |----------|---------|------|
 | `SMILE_SUPPORT_EMAIL` | `support@avison-soft.com` | Optional override (this is the site default) |
-| `SMILE_DOWNLOAD_URL` | `https://avison-soft.com/Smile-0.25.0.dmg` | External CDN or stable alias URL |
-| `SMILE_DOWNLOAD_BASE_URL` | `https://cdn.example.com/smile` | Versioned files on a CDN root |
+| `SMILE_DOWNLOAD_URL` | *(leave unset)* | **Do not set** when DMG is in `public/` — it pins the URL and breaks version bumps |
+| `SMILE_DOWNLOAD_BASE_URL` | `https://cdn.example.com/smile` | External CDN only; appends versioned filename |
 
-With no download env vars, the site serves `public/Smile-{version}.dmg` at `/Smile-{version}.dmg` (currently `0.25.0`).
+With no download env vars, the site serves `public/Smile-{version}.dmg` at `/Smile-{version}.dmg` (from `lib/releases/smile.ts`).
 
 ## 3. DMG hosting (current)
 
 ```
-public/Smile-0.25.0.dmg  →  https://avison-soft.com/Smile-0.25.0.dmg
+public/Smile-0.25.1.dmg  →  https://avison-soft.com/Smile-0.25.1.dmg
 ```
 
-`~10 MB` in `public/` is fine at early traffic. Bump `version` in `lib/releases/smile.ts` and replace the file when you ship a new build.
+`~11 MB` in `public/` is fine at early traffic. Bump `version` in `lib/releases/smile.ts` and replace the file when you ship a new build. **Remove `SMILE_DOWNLOAD_URL` from Netlify** if you added it during setup — a stale value (e.g. `Smile-0.25.0.dmg`) overrides the automatic URL.
 
 ## 4. DNS
 
@@ -41,9 +41,9 @@ public/Smile-0.25.0.dmg  →  https://avison-soft.com/Smile-0.25.0.dmg
 ## 6. Smoke test
 
 - `/` and `/smile` load
-- `/smile/download` — download button works (auto-starts from `/Smile-0.25.0.dmg`)
+- `/smile/download` — download button uses `/Smile-0.25.1.dmg` (no `SMILE_DOWNLOAD_URL` env var)
 - `/smile/privacy`, `/smile/eula`, `/smile/support` — support email correct
-- `https://avison-soft.com/Smile-0.25.0.dmg` downloads the file
+- `https://avison-soft.com/Smile-0.25.1.dmg` downloads the file
 
 ## 7. Turn off Vercel
 
