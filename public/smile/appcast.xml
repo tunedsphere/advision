@@ -3,6 +3,19 @@
     <channel>
         <title>Smile</title>
         <item>
+            <title>0.26.0</title>
+            <pubDate>Sat, 11 Jul 2026 13:43:16 +0200</pubDate>
+            <sparkle:version>0.26.0</sparkle:version>
+            <sparkle:shortVersionString>0.26.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://avison-soft.com/smile/Smile%200.26.0.zip" length="12398493" type="application/octet-stream" sparkle:edSignature="Bx1O8zkPKJ3PS1HVdLjcDKADTvb6EyY5MSokKVVT3YC9lkQYv3YaMk2npS7O1GTX60y8gPCEbiD5Dc+UgjcTBw=="/>
+            <sparkle:deltas>
+                <enclosure url="https://avison-soft.com/smile/Smile0.26.0-0.25.3.delta" sparkle:deltaFrom="0.25.3" length="867418" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="uB4k6Y3OcP7Uy7SUsEN1KpzRqjSam7L4WoZvfoWy0p1r96J337dvu3Tv4/yXvv7KpBeQwPh6gpyf7GDzaihiCw=="/>
+                <enclosure url="https://avison-soft.com/smile/Smile0.26.0-0.25.2.delta" sparkle:deltaFrom="0.25.2" length="874898" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="BuQyNrYzLaJVAmqX21EioYV8Kt1+nSue6ZvtBLjUP89x5Vnovp9EF4VHKw0UZUpORSZseqsMQebtUUqa0VycAQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.25.3</title>
             <pubDate>Sat, 11 Jul 2026 11:28:07 +0200</pubDate>
             <sparkle:version>0.25.3</sparkle:version>
