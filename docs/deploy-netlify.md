@@ -41,6 +41,8 @@ Then commit and push **advision-web**.
 
 Replace same version (fixed DMG, no bump): overwrite `public/Smile-{version}.dmg` only, commit, push.
 
+**Repo size:** `publish-smile-release.sh` keeps only the latest `public/Smile-*.dmg`. Sparkle zips, deltas, and `appcast.xml` under `public/smile/` are kept for in-app update history.
+
 ## Sparkle in-app updates
 
 ```
