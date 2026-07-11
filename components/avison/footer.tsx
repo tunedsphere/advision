@@ -24,7 +24,7 @@ export function Footer() {
                   href="/smile"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Smile
+                  Smile — macOS music app
                 </Link>
               </li>
               <li>
@@ -32,7 +32,7 @@ export function Footer() {
                   href="/laugh"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  laugh
+                  Laugh — video app
                 </Link>
               </li>
             </ul>

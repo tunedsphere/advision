@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Download, Maximize2, Film } from "lucide-react";
+import { LAUGH_PRODUCT_SEARCH_COPY } from "@/lib/seo/search-copy";
 
 export function LaughHero() {
   return (
     <section className="pt-32 pb-16 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
-          Video App
+        <p className="text-muted-foreground mb-4 text-xs tracking-widest uppercase">
+          {LAUGH_PRODUCT_SEARCH_COPY.eyebrow}
         </p>
 
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6 tracking-tight leading-[1.08]">

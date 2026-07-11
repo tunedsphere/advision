@@ -146,8 +146,8 @@ export function Products() {
                   </span>
                 </h2>
                 <p className="text-muted-foreground mt-2 max-w-[240px] text-sm">
-                  Your music, your way. Full personalization with tag
-                  management.
+                  macOS music app — local library, tag editing, and
+                  personalization.
                 </p>
               </div>
 
@@ -167,7 +167,8 @@ export function Products() {
                   </span>
                 </h2>
                 <p className="text-muted-foreground mt-2 max-w-[200px] text-sm">
-                  Your library, beautifully organized. Smart video management.
+                  Video app — local library, cinematic playback, and smart
+                  organization.
                 </p>
               </div>
             </div>

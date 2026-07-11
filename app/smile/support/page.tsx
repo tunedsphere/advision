@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SmileFooter } from "@/components/smile/footer";
 import { SmileHeaderShell } from "@/components/smile/header-shell";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { SMILE_SUPPORT_SEARCH_COPY } from "@/lib/seo/search-copy";
 import { SMILE_COMPANY_NAME, SMILE_SUPPORT_EMAIL } from "@/lib/smile/site";
 
-export const metadata: Metadata = {
-  title: "Support | Smile",
-  description: "Get help with Smile on macOS.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: SMILE_SUPPORT_SEARCH_COPY.title,
+  description: SMILE_SUPPORT_SEARCH_COPY.description,
+  path: "/smile/support",
+});
 
 export default function SmileSupportPage() {
   return (
@@ -50,6 +53,10 @@ export default function SmileSupportPage() {
           <p>
             <Link href="/smile/download" className="text-foreground underline">
               Download Smile
+            </Link>{" "}
+            ·{" "}
+            <Link href="/smile/faq" className="text-foreground underline">
+              FAQ
             </Link>{" "}
             ·{" "}
             <Link href="/smile/privacy" className="text-foreground underline">

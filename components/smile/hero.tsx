@@ -4,6 +4,8 @@ import { HeroScreenshotShowcase } from "@/components/smile/hero-screenshot-showc
 import { HeroWaveBackground } from "@/components/smile/hero-wave-background";
 import { getSmileRelease } from "@/lib/releases";
 
+import { SMILE_PRODUCT_SEARCH_COPY } from "@/lib/seo/search-copy";
+
 export function SmileHero() {
   const release = getSmileRelease();
   const fileName = release.installerFileName(release.version);
@@ -12,6 +14,10 @@ export function SmileHero() {
       <HeroWaveBackground />
 
       <div className="relative z-10 mx-auto max-w-6xl pb-8 text-center sm:pb-16 md:pb-32">
+        <p className="text-muted-foreground mb-4 text-xs tracking-widest uppercase">
+          {SMILE_PRODUCT_SEARCH_COPY.eyebrow}
+        </p>
+
         <div className="mb-6 flex justify-center">
           <Image
             src="/smile/icon.png"

@@ -34,7 +34,7 @@ export function Header() {
             href="/laugh"
             className="text-sm uppercase tracking-wide text-foreground hover:text-muted-foreground transition-colors"
           >
-            laugh
+            Laugh
           </Link>
           <Link
             href="#about"
@@ -89,7 +89,7 @@ export function Header() {
               className="text-sm uppercase tracking-wide text-foreground hover:text-muted-foreground transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              laugh
+              Laugh
             </Link>
             <Link
               href="#about"
