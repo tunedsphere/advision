@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Smile</title>
+        <item>
+            <title>0.25.3</title>
+            <pubDate>Sat, 11 Jul 2026 11:28:07 +0200</pubDate>
+            <sparkle:version>0.25.3</sparkle:version>
+            <sparkle:shortVersionString>0.25.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://avison-soft.com/smile/Smile%200.25.3.zip" length="12384331" type="application/octet-stream" sparkle:edSignature="uC9HWqXFbh14z9QQ/d6+rEdiKfonOU9jSzsyg01zaRmE4oH9XD1nUXduDBcDBEBDbqQJ4nWe0CzQWhTt1IsWBQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://avison-soft.com/smile/Smile0.25.3-0.25.2.delta" sparkle:deltaFrom="0.25.2" length="24186" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977808" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="QWWdETOA6qyx0kZUWD1zH5CSs/H3PiJ0f/3e9lb1uxiLArzmFbVGdl5y0hO/JBn0MM5EhooXjA/r71JkQcY0Dg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
+            <title>0.25.2</title>
+            <pubDate>Sat, 11 Jul 2026 11:18:50 +0200</pubDate>
+            <sparkle:version>0.25.2</sparkle:version>
+            <sparkle:shortVersionString>0.25.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://avison-soft.com/smile/Smile%200.25.2.zip" length="12342804" type="application/octet-stream" sparkle:edSignature="tsuA6nOOWU68eUcUGW7+0x0wYfBcFqrh3DD28FLN2mtoT+EJvnef/GyV5YAVYWxpuNJkhiE0exBE9ouuUIoRAQ=="/>
+        </item>
+    </channel>
+</rss>

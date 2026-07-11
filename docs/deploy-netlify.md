@@ -22,12 +22,33 @@ With no download env vars, the site serves `public/Smile-{version}.dmg` from **`
 
 ## Ship a new Smile build
 
-1. Bump version (same file as smile-app): `pnpm release:smile 0.25.2`
+**From smile-app (recommended):**
+
+```bash
+./scripts/publish-smile-release.sh
+# copies DMG + Sparkle zip + appcast.xml into advision-web/public/
+```
+
+Then commit and push **advision-web**.
+
+**Manual (website only):**
+
+1. Bump version: `pnpm release:smile 0.25.2`
 2. Copy `Smile-0.25.2.dmg` → `public/Smile-0.25.2.dmg`
-3. `pnpm verify:smile-release` (also runs automatically before `pnpm build`)
-4. commit-to-v, push — **do not** set `SMILE_DOWNLOAD_URL` on Netlify
+3. Copy Sparkle artifacts from smile-app: `public/smile/appcast.xml`, `public/smile/releases/Smile 0.25.2.zip`
+4. `pnpm verify:smile-release` (also runs before `pnpm build`)
+5. commit-to-v, push — **do not** set `SMILE_DOWNLOAD_URL` on Netlify
 
 Replace same version (fixed DMG, no bump): overwrite `public/Smile-{version}.dmg` only, commit, push.
+
+## Sparkle in-app updates
+
+```
+https://avison-soft.com/smile/appcast.xml
+https://avison-soft.com/smile/Smile%200.25.2.zip
+```
+
+Shipped apps check the appcast on launch. First-install users still use the DMG.
 
 ## 3. DMG hosting (current)
 
