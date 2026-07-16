@@ -10,6 +10,7 @@ export const SMILE_SUPPORT_EMAIL =
   process.env.SMILE_SUPPORT_EMAIL?.trim() || "support@avison-soft.com";
 
 export const SMILE_LEGAL_LINKS = [
+  { href: "/mood-cloud", label: "Mood" },
   { href: "/smile/faq", label: "FAQ" },
   { href: "/smile/privacy", label: "Privacy" },
   { href: "/smile/eula", label: "EULA" },

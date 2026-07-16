@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ClerkProviderShell } from "@/components/clerk-provider-shell";
+import { SiteThemeGuard } from "@/components/site-theme-guard";
 import { SITE_NAME, SITE_URL } from "@/lib/seo/site";
 import "./globals.css";
 
@@ -44,7 +46,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        <ClerkProviderShell>
+          <SiteThemeGuard />
+          {children}
+        </ClerkProviderShell>
         {process.env.NODE_ENV === "production" && process.env.VERCEL && (
           <Analytics />
         )}

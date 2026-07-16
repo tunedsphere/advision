@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { SmileDownloadButton } from "@/components/smile/download-button";
@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 type SmileHeaderProps = {
   downloadUrl: string | null;
   fileName: string;
+  trailing?: ReactNode;
 };
 
 const navLinkClass =
@@ -17,7 +18,7 @@ const navLinkClass =
 const mobileNavLinkClass =
   "rounded-lg px-2 py-3 text-base font-medium uppercase tracking-wide text-foreground transition-colors hover:bg-muted/50 hover:text-muted-foreground";
 
-export function SmileHeader({ downloadUrl, fileName }: SmileHeaderProps) {
+export function SmileHeader({ downloadUrl, fileName, trailing }: SmileHeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -83,6 +84,7 @@ export function SmileHeader({ downloadUrl, fileName }: SmileHeaderProps) {
           <Link href="#personalization" className={navLinkClass}>
             Personalization
           </Link>
+          {trailing}
           <SmileDownloadButton
             downloadUrl={downloadUrl}
             fileName={fileName}
@@ -167,6 +169,11 @@ export function SmileHeader({ downloadUrl, fileName }: SmileHeaderProps) {
               >
                 Avison
               </Link>
+              {trailing ? (
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  {trailing}
+                </div>
+              ) : null}
               <SmileDownloadButton
                 downloadUrl={downloadUrl}
                 fileName={fileName}

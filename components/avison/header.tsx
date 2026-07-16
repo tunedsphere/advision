@@ -37,6 +37,12 @@ export function Header() {
             Laugh
           </Link>
           <Link
+            href="/mood-cloud"
+            className="text-sm uppercase tracking-wide text-foreground hover:text-muted-foreground transition-colors"
+          >
+            Mood
+          </Link>
+          <Link
             href="#about"
             className="text-sm uppercase tracking-wide text-foreground hover:text-muted-foreground transition-colors"
           >
@@ -90,6 +96,13 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Laugh
+            </Link>
+            <Link
+              href="/mood-cloud"
+              className="text-sm uppercase tracking-wide text-foreground hover:text-muted-foreground transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Mood
             </Link>
             <Link
               href="#about"

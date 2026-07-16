@@ -32,6 +32,9 @@ export function LaughHeader() {
           <Link href="#library" className={navLinkClass}>
             Library
           </Link>
+          <Link href="/mood-cloud" className={navLinkClass}>
+            Mood
+          </Link>
           <Button
             size="sm"
             variant="secondary"
@@ -79,6 +82,9 @@ export function LaughHeader() {
             </Link>
             <Link href="#library" className={navLinkClass}>
               Library
+            </Link>
+            <Link href="/mood-cloud" className={navLinkClass}>
+              Mood
             </Link>
             <Link href="/" className={navLinkClass}>
               Avison

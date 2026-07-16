@@ -87,7 +87,7 @@ export function HeroScreenshotShowcase() {
 
   return (
     <div ref={showcaseRef} className="w-full min-w-0 pb-4 sm:pb-6">
-      <div className="border-border bg-card/40 relative aspect-[1444/619] w-full max-w-full overflow-hidden rounded-xl border shadow-lg md:rounded-2xl md:shadow-2xl">
+      <div className="border-border bg-background relative aspect-[1444/619] w-full max-w-full overflow-hidden rounded-xl border shadow-lg md:rounded-2xl md:shadow-2xl">
         {FRAMES.map((frame, index) => {
           const isActive = index === activeIndex;
 

@@ -28,6 +28,15 @@ export const SMILE_FAQ_SEARCH_COPY = {
     "Answers about Smile — pricing, Apple Silicon and macOS requirements, offline local library, tag editing, and how Smile compares to streaming apps.",
 };
 
+export const MOOD_CLOUD_SEARCH_COPY = {
+  title: "Mood — Library Sync & Storage | Avison",
+  description:
+    "Premium Mood sync for your Mac library — predictable storage tiers, no overage surprises, and multi-Mac Smile Library sync. Local Smile stays free.",
+};
+
+/** @deprecated use MOOD_CLOUD_SEARCH_COPY */
+export const SMILE_CLOUD_SEARCH_COPY = MOOD_CLOUD_SEARCH_COPY;
+
 export const SMILE_SUPPORT_SEARCH_COPY = {
   title: "Support | Smile",
   description: "Get help with Smile on macOS — contact support by email.",
